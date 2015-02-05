@@ -17,12 +17,12 @@ class cities {
     {
         $sql=”SELECT id, name FROM city″;
         $cities = Yii::app()->db->CreateCommand($sql)->queryAll();
-        var_dump($cities);
+
         if(!$cities) return array();
 
         foreach($city as $cities)
         {
-            $result[$city[‘id’]] = $city[‘name’];
+            $result[$city[0]] = $city[1];
         }
         return $result;
     }
