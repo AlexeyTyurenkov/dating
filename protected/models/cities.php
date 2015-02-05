@@ -20,7 +20,7 @@ class cities {
 
         if(!$cities) return array();
 
-        foreach($city as $cities)
+        foreach($cities as $city)
         {
             $result[$city['id']] = $city['name'];
         }
