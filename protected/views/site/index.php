@@ -1,13 +1,9 @@
 
 <?php 
 echo CHtml::dropDownList('city', NULL, $citiesArray);
-?>
-<br/>
-<?php
+echo CHtml::br;
 echo CHtml::dropDownList('category', NULL, $categoriesArray);
-?>
-<br/>
-<?php
+echo CHtml::br;
 echo CHtml::dropDownList('target', NULL, $targetsArray);
+echo CHtml::br;
 ?>
-<br/>
