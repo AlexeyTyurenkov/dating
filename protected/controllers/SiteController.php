@@ -33,8 +33,8 @@ class SiteController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-                $model = new cities();
-		$this->render('index', array('citiesArray' => $model->getAllCities()));
+                $model = City::find()->asArray()->all();
+		$this->render('index', array('citiesArray' => $model));
 	}
 
 	/**
