@@ -7,7 +7,7 @@ return array(
 	
 	'connectionString' => 'mysql:host=dating.itatests.com;dbname=dating',
 	'emulatePrepare' => true,
-	'username' => 'root',
+	'username' => 'dating',
 	'password' => '1234567',
 	'charset' => 'utf8',
 	
