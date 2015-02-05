@@ -91,4 +91,16 @@ class City extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        public static function getAllCitiesAsKeyValue() 
+        {
+            $citiesArray = City::find()->asArray()->all();
+            if(!$citiesArray) return array();
+
+            foreach($citiesArray as $city)
+            {
+                $result[$city->id] = $city->name;
+            }
+            return $result;   
+        }
 }
