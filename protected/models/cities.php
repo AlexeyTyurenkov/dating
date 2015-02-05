@@ -15,14 +15,14 @@ class cities {
     //put your code here
     public function getAllCities()
     {
-        $sql=”SELECT id, name FROM city″;
+        $sql="SELECT id, name FROM city";
         $cities = Yii::app()->db->CreateCommand($sql)->queryAll();
 
         if(!$cities) return array();
 
         foreach($city as $cities)
         {
-            $result[$city[0]] = $city[1];
+            $result[$city['id']] = $city['name'];
         }
         return $result;
     }
