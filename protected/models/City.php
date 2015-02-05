@@ -99,7 +99,7 @@ class City extends CActiveRecord
 
             foreach($citiesArray as $city)
             {
-                $result[$city->id] = $city->name;
+                $result[$city["id"]] = $city["name"];
             }
             return $result;   
         }
