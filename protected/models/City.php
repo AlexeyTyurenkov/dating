@@ -94,7 +94,7 @@ class City extends CActiveRecord
         
         public static function getAllCitiesAsKeyValue() 
         {
-            $citiesArray = City::find()->asArray()->all();
+            $citiesArray = City::find()->all();
             if(!$citiesArray) return array();
 
             foreach($citiesArray as $city)
