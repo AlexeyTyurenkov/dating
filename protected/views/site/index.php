@@ -1,9 +1,11 @@
 
 <?php 
+echo CHtml::beginForm();
 echo CHtml::dropDownList('city', NULL, $citiesArray);
-echo CHtml::tag('br');
+echo CHtml::tag('br/');
 echo CHtml::dropDownList('category', NULL, $categoriesArray);
-echo CHtml::br;
+echo CHtml::tag('br/');
 echo CHtml::dropDownList('target', NULL, $targetsArray);
-echo CHtml::br;
+echo CHtml::submitButton('Фильтр');
+echo CHtml::endForm();
 ?>
