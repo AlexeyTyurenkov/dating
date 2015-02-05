@@ -91,4 +91,15 @@ class Target extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        public static function getAllTargetsAsKeyValue() 
+        {
+            $categoriesArray = Target::model()->findAll();
+            if(!$categoriesArray) return array();
+
+            foreach($categoriesArray as $city)
+            {
+                $result[$city["id"]] = $city["name"];
+            }
+            return $result;   
+        }
 }

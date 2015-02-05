@@ -91,4 +91,17 @@ class Category extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        
+        public static function getAllCategoriesAsKeyValue() 
+        {
+            $categoriesArray = Category::model()->findAll();
+            if(!$categoriesArray) return array();
+
+            foreach($categoriesArray as $city)
+            {
+                $result[$city["id"]] = $city["name"];
+            }
+            return $result;   
+        }
 }
