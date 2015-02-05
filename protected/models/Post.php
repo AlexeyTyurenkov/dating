@@ -111,4 +111,43 @@ class Post extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        public function city($city = 0)
+        {
+            if($city != 0)
+            {
+                $this->getDbCriteria()->mergeWith(array('condition'=>'city_id = '.$city));
+            }
+            return $this;
+        }
+        public function category($category = 0)
+        {
+            if($category != 0)
+            {
+                $this->getDbCriteria()->mergeWith(array('condition'=>'category_id = '.$category));
+            }
+            return $this;
+        }
+        public function target($target = 0)
+        {
+            if($target != 0)
+            {
+                $this->getDbCriteria()->mergeWith(array('condition'=>'target_id = '.$target));
+            }
+            return $this;
+        }
+        
+        public function pagination($offset = 0, $limit = 50)
+        {
+             $this->getDbCriteria()->mergeWith(array(
+            'offset'=>$offset,
+            'limit'=>$limit,));
+            return $this;
+        }
+        public static function getNextMessages($city,$category,$target,$offset,$limit)
+        {
+            $allPosts = Post::model()->city($city)->category($category)->target($target)->pagination($offset,$limit)->findAll();
+            return $allPosts;
+        }
+                
 }
