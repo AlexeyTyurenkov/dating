@@ -17,7 +17,7 @@ class cities {
     {
         $sql=”SELECT id, name FROM city″;
         $cities = Yii::app()->db->CreateCommand($sql)->queryAll();
-
+        var_dump($cities);
         if(!$cities) return array();
 
         foreach($city as $cities)
