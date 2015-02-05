@@ -12,6 +12,6 @@ echo CHtml::endForm();
 foreach ($postsArray as $post) 
 {
     echo $post->category_id;
-    echo $post->category()->name;
+    echo $post->category->name;
 }
 ?>
