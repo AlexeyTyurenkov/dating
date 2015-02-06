@@ -26,12 +26,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'create_date'); ?>
-		<?php echo $form->textField($model,'create_date'); ?>
-		<?php echo $form->error($model,'create_date'); ?>
-	</div>
-
-	<div class="row">
 
                 <?php 
                 echo $form->labelEx($model,'city_id');
@@ -64,7 +58,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'text'); ?>
-		<?php echo $form->textField($model,'text'); ?>
+		<?php echo $form->textArea($model,'text'); ?>
 		<?php echo $form->error($model,'text'); ?>
 	</div>
 
