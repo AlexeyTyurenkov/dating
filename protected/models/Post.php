@@ -12,12 +12,15 @@
  * @property string $target_id
  * @property string $header
  * @property string $text
+ * @property integer $active
+ * @property integer $abused
+ * @property integer $age
  *
  * The followings are the available model relations:
- * @property Target $target
  * @property City $city
  * @property User $user
  * @property Category $category
+ * @property Target $target
  */
 class Post extends CActiveRecord
 {
@@ -37,13 +40,14 @@ class Post extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, create_date, city_id, category_id, target_id, header, text', 'required'),
+			array('user_id, create_date, city_id, category_id, target_id, header, text, active, abused, age', 'required'),
+			array('active, abused, age', 'numerical', 'integerOnly'=>true),
 			array('user_id, city_id, category_id, target_id', 'length', 'max'=>10),
 			array('header', 'length', 'max'=>80),
 			array('text', 'length', 'max'=>2000),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, user_id, create_date, city_id, category_id, target_id, header, text', 'safe', 'on'=>'search'),
+			array('id, user_id, create_date, city_id, category_id, target_id, header, text, active, abused, age', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,10 +59,10 @@ class Post extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'target' => array(self::BELONGS_TO, 'Target', 'target_id'),
 			'city' => array(self::BELONGS_TO, 'City', 'city_id'),
 			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
 			'category' => array(self::BELONGS_TO, 'Category', 'category_id'),
+			'target' => array(self::BELONGS_TO, 'Target', 'target_id'),
 		);
 	}
 
@@ -69,13 +73,16 @@ class Post extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'user_id' => 'User',
-			'create_date' => 'Create Date',
-			'city_id' => 'City',
-			'category_id' => 'Category',
-			'target_id' => 'Target',
-			'header' => 'Header',
-			'text' => 'Text',
+			'user_id' => 'Пользователь',
+			'create_date' => 'Дата создания',
+			'city_id' => 'Город',
+			'category_id' => 'Категория',
+			'target_id' => 'Цель',
+			'header' => 'Заголовок',
+			'text' => 'ТЕкст',
+			'active' => 'Активно',
+			'abused' => 'Есть жалобы',
+			'age' => 'Возраст',
 		);
 	}
 
@@ -105,6 +112,9 @@ class Post extends CActiveRecord
 		$criteria->compare('target_id',$this->target_id,true);
 		$criteria->compare('header',$this->header,true);
 		$criteria->compare('text',$this->text,true);
+		$criteria->compare('active',$this->active);
+		$criteria->compare('abused',$this->abused);
+		$criteria->compare('age',$this->age);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -121,42 +131,4 @@ class Post extends CActiveRecord
 	{
 		return parent::model($className);
 	}
-        
-        public function filterCity($city = 0)
-        {
-            if($city != 0)
-            {
-                $this->getDbCriteria()->mergeWith(array('condition'=>'city_id = '.$city));
-            }
-            return $this;
-        }
-        public function filterCategory($category = 0)
-        {
-            if($category != 0)
-            {
-                $this->getDbCriteria()->mergeWith(array('condition'=>'category_id = '.$category));
-            }
-            return $this;
-        }
-        public function filterTarget($target = 0)
-        {
-            if($target != 0)
-            {
-                $this->getDbCriteria()->mergeWith(array('condition'=>'target_id = '.$target));
-            }
-            return $this;
-        }
-        
-        public function pagination($offset = 0, $limit = 50)
-        {
-             $this->getDbCriteria()->mergeWith(array(
-            'offset'=>$offset,
-            'limit'=>$limit,));
-            return $this;
-        }
-        public static function getNextMessages($city,$category,$target,$offset,$limit)
-        {
-            $allPosts = Post::model()->filterCity($city)->filterCategory($category)->filterTarget($target)->pagination($offset,$limit)->findAll();
-            return $allPosts;
-        }
 }
