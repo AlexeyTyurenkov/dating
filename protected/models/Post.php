@@ -131,4 +131,57 @@ class Post extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+                public function filterCity($city = 0)
+        {
+            if($city != 0)
+            {
+                $this->getDbCriteria()->mergeWith(array('condition'=>'city_id = '.$city));
+            }
+            return $this;
+        }
+        public function filterCategory($category = 0)
+        {
+            if($category != 0)
+            {
+                $this->getDbCriteria()->mergeWith(array('condition'=>'category_id = '.$category));
+            }
+            return $this;
+        }
+        public function filterTarget($target = 0)
+        {
+            if($target != 0)
+            {
+                $this->getDbCriteria()->mergeWith(array('condition'=>'target_id = '.$target));
+            }
+            return $this;
+        }
+        
+        public function pagination($offset = 0, $limit = 50)
+        {
+             $this->getDbCriteria()->mergeWith(array(
+            'offset'=>$offset,
+            'limit'=>$limit,));
+            return $this;
+        }
+        
+        public function filterAge($minAge = 18, $maxAge = 99)
+        {
+            if ($minAge < 18) 
+            {
+            $minAge = 18;
+            }
+            if ($maxAge > 99) 
+            {
+                $maxAge = 99;
+            }
+            $this->getDbCriteria()->mergeWith(array('condition'=>'age between '.$minAge.' and '.$maxAge));
+            return $this;
+        }
+        
+        
+        public static function getNextMessages($city,$category,$target,$offset,$limit)
+        {
+            $allPosts = Post::model()->filterCity($city)->filterCategory($category)->filterTarget($target)->filterAge()->pagination($offset,$limit)->findAll();
+            return $allPosts;
+        }
 }
