@@ -32,25 +32,28 @@
 	</div>
 
 	<div class="row">
+
                 <?php 
-//                $list = CHtml::listData($model->city, 'id', 'name');
-//                var_dump($list);
-     echo $form->dropDownList($model, 'city_id', CHtml::listData(City::model()->findAll(), 'id', 'name')); ?>
-		<?php echo $form->labelEx($model,'city_id'); ?>
-		<?php echo $form->textField($model,'city_id'); ?>
-		<?php echo $form->error($model,'city_id'); ?>
+                echo $form->labelEx($model,'city_id');
+                echo $form->dropDownList($model, 'city_id', CHtml::listData(City::model()->findAll(), 'id', 'name')); 
+                echo $form->error($model,'city_id');
+		 ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'category_id'); ?>
-		<?php echo $form->textField($model,'category_id'); ?>
-		<?php echo $form->error($model,'category_id'); ?>
+		<?php 
+                echo $form->labelEx($model,'category_id');
+		echo $form->dropDownList($model, 'category_id', CHtml::listData(Category::model()->findAll(), 'id', 'name'));
+		echo $form->error($model,'category_id'); 
+                ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'target_id'); ?>
-		<?php echo $form->textField($model,'target_id'); ?>
-		<?php echo $form->error($model,'target_id'); ?>
+		<?php 
+                echo $form->labelEx($model,'target_id'); 
+		echo $form->dropDownList($model, 'target_id', CHtml::listData(Target::model()->findAll(), 'id', 'name')); 
+		echo $form->error($model,'target_id'); 
+                ?>
 	</div>
 
 	<div class="row">
@@ -85,7 +88,7 @@
 
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Submit'); ?>
+		<?php echo CHtml::submitButton('Отправить'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
