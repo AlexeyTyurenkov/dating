@@ -131,11 +131,11 @@ class Post extends CActiveRecord
 	{
 		return parent::model($className);
 	}
-                public function filterCity($city = 0)
+        public function filterCity($city = 0)
         {
             if($city != 0)
             {
-                $this->getDbCriteria()->mergeWith(array('condition'=>'city_id = '.$city));
+                $this->getDbCriteria()->addCondition('city_id = '.$city);
             }
             return $this;
         }
@@ -143,7 +143,7 @@ class Post extends CActiveRecord
         {
             if($category != 0)
             {
-                $this->getDbCriteria()->mergeWith(array('condition'=>'category_id = '.$category));
+                $this->getDbCriteria()->addCondition('category_id = '.$category);
             }
             return $this;
         }
@@ -151,7 +151,7 @@ class Post extends CActiveRecord
         {
             if($target != 0)
             {
-                $this->getDbCriteria()->mergeWith(array('condition'=>'target_id = '.$target));
+                $this->getDbCriteria()->addCondition('target_id = '.$target);
             }
             return $this;
         }
@@ -174,7 +174,7 @@ class Post extends CActiveRecord
             {
                 $maxAge = 99;
             }
-            $this->getDbCriteria()->mergeWith(array('condition'=>'age between '.$minAge.' and '.$maxAge));
+            $this->getDbCriteria()->addBetweenCondition('age',$minAge,$maxAge);
             return $this;
         }
         
