@@ -35,7 +35,7 @@
                 <?php 
 //                $list = CHtml::listData($model->city, 'id', 'name');
 //                var_dump($list);
-                echo $form->dropDownList($model->city->getAllCitiesAsKeyValue()); ?>
+     echo $form->dropDownList($model, 'city_id', CHtml::listData(City::model()->findAll(), 'id', 'name')); ?>
 		<?php echo $form->labelEx($model,'city_id'); ?>
 		<?php echo $form->textField($model,'city_id'); ?>
 		<?php echo $form->error($model,'city_id'); ?>
