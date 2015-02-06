@@ -11,7 +11,7 @@ echo CHtml::endForm();
 
 foreach ($postsArray as $post) 
 {
-    echo $post->category_id;
-    echo $post->category->name;
+    $this->renderPartial("_smallPost", array('model'=>$post));
+    echo CHtml::tag('hr/');
 }
 ?>
