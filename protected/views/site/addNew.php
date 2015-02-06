@@ -32,6 +32,7 @@
 	</div>
 
 	<div class="row">
+                <?php echo $form->dropDownList($model->city->getAllCitiesAsKeyValue()); ?>
 		<?php echo $form->labelEx($model,'city_id'); ?>
 		<?php echo $form->textField($model,'city_id'); ?>
 		<?php echo $form->error($model,'city_id'); ?>
