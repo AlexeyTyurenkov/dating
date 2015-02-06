@@ -79,4 +79,30 @@ class SiteController extends Controller
             }
             $this->render('_smallView',array('model'=>$model));
         }
+        
+        public function actionAddNew()
+        {
+            $model=new Post;
+
+            // uncomment the following code to enable ajax-based validation
+            /*
+            if(isset($_POST['ajax']) && $_POST['ajax']==='post-addNew-form')
+            {
+                echo CActiveForm::validate($model);
+                Yii::app()->end();
+            }
+            */
+
+            if(isset($_POST['Post']))
+            {
+                $model->attributes=$_POST['Post'];
+                if($model->validate())
+                {
+                    // form inputs are valid, do something here
+                    $model->save();
+                    return;
+                }
+            }
+            $this->render('addNew',array('model'=>$model));
+        }
 }
