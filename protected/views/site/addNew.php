@@ -5,15 +5,7 @@
 ?>
 
 <div class="form">
-<?php Yii::app()->clientScript->registerScript('makeAjaxCall',
-     'function makeAjaxCall(){
-         $.ajax({
-             url:"index.php?r=site/getuserdata",
-             dataType: "json",
-             type:"post"
-             /*Any Other Ajax Options here, like the beforeSend, then, done and fail callbacks*/
-         })
-     }');?>
+
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'post-addNew-form',
 	// Please note: When you enable ajax validation, make sure the corresponding
@@ -31,7 +23,15 @@
 	<div class="row">
 
             <?php echo CHtml::textField('email', '', array('placeholder'=>'Введите email',
-                                                           'onblur'=>'js:makeAjaxCall();'));
+                                                           'ajax' => array(
+                                                                        'type'=>'POST', //request type
+                                                                        'url'=>$this->createUrl('site/ajaxAction'), // url to call controller action
+                                                                        'success'=>' function(data) { '
+                                                               . '              $(\'#user_id\').val(data) '
+                                                               . '          }',// function to call onsuccess 
+             // "data" is returned data and function can be regular js or jQuery
+             // here we are are updating the value of another field that has id "my_output_field"
+	)));
 		echo $form->hiddenField($model,'user_id'); ?>
 		<?php echo $form->error($model,'user_id'); ?>
 	</div>
