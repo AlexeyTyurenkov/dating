@@ -21,7 +21,18 @@
 
                 <?php echo $form->errorSummary($model); ?>
 	<div class="row">
-		<?php echo $form->textField($model,'email', array('placeholder'=>'Введите email')); ?>
+            <?php Yii::app()->clientScript->registerScript('makeAjaxCall',
+     'function makeAjaxCall(){
+         $.ajax({
+             url:"index.php?r=site/getuserdata",
+             dataType: "json",
+             type:"post"
+             /*Any Other Ajax Options here, like the beforeSend, then, done and fail callbacks*/
+         })
+     }');?>
+            <?php echo CHtml::textField('email', '', array('placeholder'=>'Введите email',
+                                                           'onblur'=>'js:makeAjaxCall();'));
+		echo $form->hiddenField($model,'user_id'); ?>
 		<?php echo $form->error($model,'user_id'); ?>
 	</div>
 
