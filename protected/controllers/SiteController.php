@@ -105,4 +105,14 @@ class SiteController extends Controller
             }
             $this->render('addNew',array('model'=>$model));
         }
+        
+        public function actionGetUserID() 
+        {
+            if(isset($_POST['ajax']) && $_POST['ajax']==='post-addNew-form')
+            {
+                echo "1";
+                Yii::app()->end();
+            }
+            
+        }
 }

@@ -25,7 +25,7 @@
             <?php echo CHtml::textField('email', '', array('placeholder'=>'Введите email',
                                                            'ajax' => array(
                                                                         'type'=>'POST', //request type
-                                                                        'url'=>$this->createUrl('site/ajaxAction'), // url to call controller action
+                                                                        'url'=>$this->createUrl('site/getUserID'), // url to call controller action
                                                                         'success'=>' function(data) { '
                                                                . '              $(\'#user_id\').val(data) '
                                                                . '          }',// function to call onsuccess 
