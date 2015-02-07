@@ -111,7 +111,7 @@ class SiteController extends Controller
             if(Yii::app()->request->isAjaxRequest)
             {
                 $email = Yii::app()->request->getPost('email');
-                $user_id = User::model()->find("email = \'".$email."\'");
+                $user_id = User::model()->find("email = '".$email."'");
                 if(!isset($user_id))
                 {
                    $newuser = new User();
