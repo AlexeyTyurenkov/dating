@@ -18,7 +18,7 @@
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
-
+        <fieldset>
 	<div class="row">
 		<?php echo $form->labelEx($model,'user_id'); ?>
 		<?php echo $form->textField($model,'user_id'); ?>
@@ -49,7 +49,11 @@
 		echo $form->error($model,'target_id'); 
                 ?>
 	</div>
-
+	<div class="row">
+		<?php echo $form->labelEx($model,'age'); ?>
+		<?php echo $form->textField($model,'age'); ?>
+		<?php echo $form->error($model,'age'); ?>
+	</div>
 	<div class="row">
 		<?php echo $form->labelEx($model,'header'); ?>
 		<?php echo $form->textField($model,'header'); ?>
@@ -68,16 +72,11 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'abused'); ?>
-		<?php echo $form->textField($model,'abused'); ?>
+                <?php echo $form->hiddenField($model, 'abused',array('value'=>0));?>
 		<?php echo $form->error($model,'abused'); ?>
 	</div>
+        </fieldset>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'age'); ?>
-		<?php echo $form->textField($model,'age'); ?>
-		<?php echo $form->error($model,'age'); ?>
-	</div>
 
 
 	<div class="row buttons">
