@@ -21,8 +21,7 @@
 
                 <?php echo $form->errorSummary($model); ?>
 	<div class="row">
-		<?php echo $form->labelEx($model,'user_id'); ?>
-		<?php echo $form->textField($model,'user_id'); ?>
+		<?php echo $form->textField($model,'email', array('placeholder'=>'Введите email')); ?>
 		<?php echo $form->error($model,'user_id'); ?>
 	</div>
 

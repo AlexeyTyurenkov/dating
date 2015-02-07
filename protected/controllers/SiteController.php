@@ -4,7 +4,7 @@ class SiteController extends Controller
 {
     public function init() {
         parent::init();
-        $this->layout = "//layouts/main";
+        $this->layout = "//layouts/special";
     }
 	/**
 	 * Declares class-based actions.
