@@ -113,6 +113,6 @@ class SiteController extends Controller
                 echo "1";
                 Yii::app()->end();
             }
-            echo $_POST;
+            echo print_r($_POST);
         }
 }
