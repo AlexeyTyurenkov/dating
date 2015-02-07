@@ -63,9 +63,8 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'active'); ?>
-		<?php echo $form->textField($model,'active'); ?>
 		<?php echo $form->error($model,'active'); ?>
+                <?php echo $form->hiddenField($model, 'active',array('value'=>0));?>
 	</div>
 
 	<div class="row">
