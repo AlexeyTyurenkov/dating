@@ -118,7 +118,11 @@ class SiteController extends Controller
                    $newuser = new User();
                    $newuser->email = $email;
                    $newuser->password = $this->random_password();
-                   $newuser->save();
+                   if(!$newuser->save())
+                   {
+                       echo "Cannot save!";
+                       echo print_r($newuser->errors);
+                   }
                    $user_id = $newuser->id;
                 }
                 echo $user_id;
