@@ -111,6 +111,11 @@ class SiteController extends Controller
             if(Yii::app()->request->isAjaxRequest)
             {
                 $email = Yii::app()->request->getPost('email');
+                if(!isset($email))
+                {
+                   throw new CHttpException('Illegal method',400); 
+                }
+                    
                 $user_id = User::model()->find("email = '".$email."'");
                 if(!isset($user_id))
                 {
@@ -120,14 +125,21 @@ class SiteController extends Controller
                    $newuser->password = $this->random_password();
                    if(!$newuser->save())
                    {
-                       echo "Cannot save!";
-                       echo print_r($newuser->errors);
+                       throw new CHttpException('Cannot save to database',500);
                    }
                    $user_id = $newuser->id;
+              
                 }
                 echo $user_id;
                 Yii::app()->end();
             }
+            else 
+            {
+                throw new CHttpException('Illegal method',400);
+            }
+
+            
+            
            
         }
         private function random_password( $length = 18 ) 
