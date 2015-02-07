@@ -108,7 +108,7 @@ class SiteController extends Controller
         
         public function actionGetUserID() 
         {
-            if(isset($_POST['ajax']) && $_POST['ajax']==='post-addNew-form')
+            if(Yii::app()->request->isAjaxRequest)
             {
                 echo "1";
                 Yii::app()->end();
