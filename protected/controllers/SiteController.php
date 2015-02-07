@@ -114,6 +114,7 @@ class SiteController extends Controller
                 $user_id = User::model()->find("email = '".$email."'");
                 if(!isset($user_id))
                 {
+                   echo "Try Set"; 
                    $newuser = new User();
                    $newuser->email = $email;
                    $newuser->save();
