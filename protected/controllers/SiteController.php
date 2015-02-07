@@ -114,9 +114,10 @@ class SiteController extends Controller
                 $user_id = User::model()->find("email = '".$email."'");
                 if(!isset($user_id))
                 {
-                   echo "Try Set"; 
+                    
                    $newuser = new User();
                    $newuser->email = $email;
+                   $newuser->password = random_password();
                    $newuser->save();
                    $user_id = $newuser->id;
                 }
@@ -124,5 +125,11 @@ class SiteController extends Controller
                 Yii::app()->end();
             }
            
+        }
+        function random_password( $length = 18 ) 
+        {
+            $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-=+;:,.?";
+            $password = substr( str_shuffle( $chars ), 0, $length );
+            return $password;
         }
 }
