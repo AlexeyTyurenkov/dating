@@ -175,7 +175,7 @@ div.row .invalidated
 
 .bigSelector
 {
-    font-size: 16px;
+    font-size: 16px !important;
     margin-right: 10px;
     
 }
