@@ -172,3 +172,8 @@ div.row .invalidated
 {
     border: 2px solid  #ff3366;
 }
+
+.bigSelector
+{
+    font-size: 16pt;
+}
