@@ -12,8 +12,10 @@ echo CHtml::dropDownList('target', NULL, CHtml::listData(Target::model()->findAl
 echo CHtml::tag('/span');
 echo CHtml::submitButton('Фильтр');
 echo CHtml::endForm();
+CHtml::link("Добавить объявление", array('addNew'));
 ?>
 </div>
+
 <div class="counterfield">
     <?php
         echo "Всего ".  count($postsArray)." найдено";
