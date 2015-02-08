@@ -1,4 +1,4 @@
-
+<div class="foriframe">
 <?php 
 echo CHtml::beginForm();
 echo CHtml::tag('span');
@@ -12,7 +12,9 @@ echo CHtml::dropDownList('target', NULL, $targetsArray,array('empty'=>"Выбе�
 echo CHtml::tag('/span');
 echo CHtml::submitButton('Фильтр');
 echo CHtml::endForm();
-
+?>
+</div>
+<?php 
 foreach ($postsArray as $post) 
 {
     $this->renderPartial("_smallPost", array('model'=>$post));

@@ -227,3 +227,9 @@ div.search-form
 {
 	background: #80CFFF;
 }
+
+div.foriframe
+{
+    width: 760px;
+    text-align: center;
+}
