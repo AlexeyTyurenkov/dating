@@ -248,29 +248,25 @@ div.counterfield
     margin-bottom: 5px;
 }
 
-div.city
+div.smallpostline
 {
-    font-size: 14px;
-    width: 30%;
-    display: inline-block;
     padding-bottom: 5px;
     padding-top: 5px;
     margin-top: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 5px;  
+}
+
+
+div.city
+{
+    font-size: 14px;
+
 }
 
 div.age
 {
     font-size: 14px;
-    width: 30%;
     float: left;
-    display: inline-block;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    text-align: right;
-    vertical-align: top;
 }
 
 div.emptyspace
