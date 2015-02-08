@@ -4,15 +4,15 @@ body
 	padding: 0;
 	color: #555;
 	font: normal 10pt Arial,Helvetica,sans-serif;
-	background: #EFEFEF;
+	background: #fFfFfF;
 }
 
 #page
 {
 	margin-top: 5px;
 	margin-bottom: 5px;
-        background: #e7e7e7;
-	border: 1px solid #C9E0ED;
+        background: #f4ffff;
+	border: 1px solid #e7e7e7;
 }
 
 #header
