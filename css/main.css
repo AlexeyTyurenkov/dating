@@ -233,3 +233,11 @@ div.foriframe
     width: 760px;
     text-align: center;
 }
+
+div.counterfield
+{
+    border: 1px solid #00ffcc;
+    background-color: #00ffcc;
+    text-align: center;
+    font-size: 18pt;
+}
