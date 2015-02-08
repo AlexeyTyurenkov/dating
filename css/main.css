@@ -275,4 +275,5 @@ div.age
 div.emptyspace
 {
     width: 40%;
+    display: inline-block;
 }
