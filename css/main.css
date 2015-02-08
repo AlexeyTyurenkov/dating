@@ -244,5 +244,6 @@ div.counterfield
     color: black;
     padding-bottom: 5px;
     padding-top: 5px;
-    margin: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
