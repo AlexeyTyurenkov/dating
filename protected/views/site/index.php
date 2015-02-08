@@ -1,11 +1,15 @@
 
 <?php 
 echo CHtml::beginForm();
-echo CHtml::dropDownList('city', NULL, $citiesArray);
-echo CHtml::tag('br/');
-echo CHtml::dropDownList('category', NULL, $categoriesArray);
-echo CHtml::tag('br/');
-echo CHtml::dropDownList('target', NULL, $targetsArray);
+echo CHtml::tag('span');
+echo CHtml::dropDownList('city', NULL, $citiesArray,array('empty'=>"Выберите город...", 'class' => "bigSelector"));
+echo CHtml::tag('/span');
+echo CHtml::tag('span');
+echo CHtml::dropDownList('category', NULL, $categoriesArray,array('empty'=>"Выберите цель...", 'class' => "bigSelector"));
+echo CHtml::tag('/span');
+echo CHtml::tag('span');
+echo CHtml::dropDownList('target', NULL, $targetsArray,array('empty'=>"Выберите категорию...", 'class' => "bigSelector"));
+echo CHtml::tag('/span');
 echo CHtml::submitButton('Фильтр');
 echo CHtml::endForm();
 
