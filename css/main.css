@@ -257,7 +257,10 @@ div.smallpostline
     margin-left: 17px;
 }
 
-
+div.header
+{
+    font-weight: bold;
+}
 span.left
 {
     font-size: 14px;
