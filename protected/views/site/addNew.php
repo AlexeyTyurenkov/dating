@@ -23,13 +23,18 @@
 	<div class="row">
 
             <?php echo CHtml::textField('email', '', array('placeholder'=>'Введите email',
+                                                           'id' => 'email',
                                                            'ajax' => array(
                                                                         'type'=>'POST', //request type
                                                                         'url'=>$this->createUrl('site/getUserID'), // url to call controller action
                                                                         'success'=>' function(data) { '
                                                                . '              $(\'#Post_user_id\').val(data);'
-                                                               . '              $(\'#Post_user_id\').removeClass("invalidated").addClass("validated");'
+                                                               . '              $(\'#email\').removeClass("invalidated").addClass("validated");'
                                                                . '          }',// function to call onsuccess 
+                                                                        'error' => ' function(data) { '
+                                                               . '              $(\'#Post_user_id\').val("");'
+                                                               . '              $(\'#email\').removeClass("validated").addClass("invalidated");'
+                                                               . '          }'
              // "data" is returned data and function can be regular js or jQuery
              // here we are are updating the value of another field that has id "my_output_field"
 	)));
