@@ -65,7 +65,7 @@
                 ?>
 	</div>
 	<div class="row inline">
-		<?php echo $form->textField($model,'age', array('placeholder'=>'Ваш возраст','class'=>'headerText')); ?>
+		<?php echo $form->textField($model,'age', array('placeholder'=>'Ваш возраст','class'=>'smallInputField')); ?>
 		<?php echo $form->error($model,'age'); ?>
 	</div>
 	<div class="row">
