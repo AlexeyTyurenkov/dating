@@ -2,7 +2,7 @@
 <?php 
 echo CHtml::beginForm();
 echo CHtml::tag('span');
-echo CHtml::dropDownList('city', NULL, CHtml::listData(City::model()->findAll(), 'id', 'name'),array('empty'=>"Выберите город...", 'class' => "bigSelector", 'value' => $cityPreselected));
+echo CHtml::dropDownList('city', $cityPreselected, CHtml::listData(City::model()->findAll(), 'id', 'name'),array('empty'=>"Выберите город...", 'class' => "bigSelector"));
 echo CHtml::tag('/span');
 echo CHtml::tag('span');
 echo CHtml::dropDownList('category', NULL, CHtml::listData(Category::model()->findAll(), 'id', 'name'),array('empty'=>"Выберите цель...", 'class' => "bigSelector"));
