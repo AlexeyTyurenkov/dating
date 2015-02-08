@@ -27,7 +27,8 @@
                                                                         'type'=>'POST', //request type
                                                                         'url'=>$this->createUrl('site/getUserID'), // url to call controller action
                                                                         'success'=>' function(data) { '
-                                                               . '              $(\'#user_id\').val(data) '
+                                                               . '              $(\'#Post_user_id\').val(data);'
+                                                               . '              $(\'#Post_user_id\').removeClass("invalidated").addClass("validated");'
                                                                . '          }',// function to call onsuccess 
              // "data" is returned data and function can be regular js or jQuery
              // here we are are updating the value of another field that has id "my_output_field"
