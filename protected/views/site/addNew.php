@@ -24,6 +24,7 @@
 
             <?php echo CHtml::textField('email', '', array('placeholder'=>'Введите email',
                                                            'id' => 'email',
+                                                           'class' => 'inputField',
                                                            'ajax' => array(
                                                                         'type'=>'POST', //request type
                                                                         'url'=>$this->createUrl('site/getUserID'), // url to call controller action

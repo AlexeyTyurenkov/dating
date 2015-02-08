@@ -180,12 +180,23 @@ div.row .invalidated
     
 }
 
+.inputField
+{
+    font-size:16px; 
+    height:24px; 
+    width:280px;
+    border: 1px solid;
+    padding: 1px;
+    
+}
+
+
 .selectField
 {
     font-size:16px; 
     height:24px; 
     width:280px;
-    border: 2px solid;
+    border: 1px solid;
     padding: 1px;
     
 }
@@ -197,7 +208,7 @@ div.row .invalidated
     height:24px; 
     width:280px;
     display:inline;
-    border: 2px solid;
+    border: 1px solid;
     padding: 1px;
        
 }
