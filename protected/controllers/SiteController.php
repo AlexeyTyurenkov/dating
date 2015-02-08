@@ -135,15 +135,23 @@ class SiteController extends Controller
             {
                 throw new CHttpException(400,'Illegal method');
             }
-
-            
-            
-           
         }
+       
         private function random_password( $length = 18 ) 
         {
             $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-=+;:,.?";
             $password = substr( str_shuffle( $chars ), 0, $length );
             return $password;
+        }
+        
+        public function actionShowPost()
+        {
+            $id = Yii::app()->request->getParam('post_id');
+            $model=Post::model()->findByPk($id);
+            if(!isset($model))
+            {
+                throw new CHttpException(404,"No such post");
+            }
+            $this->render('fullPost',array('model'=>$model));
         }
 }
