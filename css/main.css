@@ -270,4 +270,5 @@ div.age
     margin-bottom: 5px;
     float: right;
     text-align: right;
+    vertical-align: top;
 }
