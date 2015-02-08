@@ -268,4 +268,6 @@ div.age
     padding-top: 5px;
     margin-top: 5px;
     margin-bottom: 5px;
+    float: left;
+    text-align: left;
 }
