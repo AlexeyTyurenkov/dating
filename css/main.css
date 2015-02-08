@@ -257,13 +257,13 @@ div.smallpostline
 }
 
 
-div.city
+span.city
 {
     font-size: 14px;
 
 }
 
-div.age
+span.age
 {
     font-size: 14px;
     float: left;
