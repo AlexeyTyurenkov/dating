@@ -260,13 +260,14 @@ div.smallpostline
 span.city
 {
     font-size: 14px;
-
+    padding-left: 17px;
 }
 
 span.age
 {
     font-size: 14px;
     float: right;
+    padding-right: 17px;
 }
 
 div.emptyspace
