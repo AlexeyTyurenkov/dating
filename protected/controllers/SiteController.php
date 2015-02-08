@@ -34,7 +34,7 @@ class SiteController extends Controller
             $city = Yii::app()->request->getParam('city',0);
             $category = Yii::app()->request->getParam('category',0);
             $target   = Yii::app()->request->getParam('target',0);
-            
+            echo print_r($_POST);
             $this->render('index', array('citiesArray'     => City::getAllCitiesAsKeyValue(), 
                                          'categoriesArray' => Category::getAllCategoriesAsKeyValue(),
                                          'targetsArray'    => Target::getAllTargetsAsKeyValue(),

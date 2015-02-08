@@ -11,8 +11,9 @@ echo CHtml::tag('span');
 echo CHtml::dropDownList('target', NULL, CHtml::listData(Target::model()->findAll(), 'id', 'name'),array('empty'=>"Выберите категорию...", 'class' => "bigSelector"));
 echo CHtml::tag('/span');
 echo CHtml::submitButton('Фильтр');
-echo CHtml::endForm();
 echo CHtml::link("Добавить объявление", array('addNew'));
+echo CHtml::endForm();
+
 ?>
 </div>
 
