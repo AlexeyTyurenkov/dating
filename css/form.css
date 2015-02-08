@@ -163,12 +163,12 @@ div.wide.form .buttons, div.wide.form .hint, div.wide.form .errorMessage
 	padding-left: 110px;
 }
 
-#email.validated
+div.row .validated
 {
     border: 2px solid #00ffcc !important;
 }
 
-#email.invalidated
+div.row .invalidated
 {
     border: 2px solid  #ff3366;
 }
