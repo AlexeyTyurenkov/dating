@@ -271,3 +271,8 @@ div.age
     text-align: right;
     vertical-align: top;
 }
+
+div.emptyspace
+{
+    width: 40%;
+}
