@@ -35,9 +35,9 @@ class SiteController extends Controller
             $category = Yii::app()->request->getParam('category',0);
             $target   = Yii::app()->request->getParam('target',0);
             echo print_r($_POST);
-            $this->render('index', array('cityPreselected'     => City::getAllCitiesAsKeyValue(), 
-                                         'categoryPreselected' => Category::getAllCategoriesAsKeyValue(),
-                                         'targetPreselected'    => Target::getAllTargetsAsKeyValue(),
+            $this->render('index', array('cityPreselected'     => $city, 
+                                         'categoryPreselected' => $category,
+                                         'targetPreselected'    => $target,
                                          'postsArray'      => Post::getNextMessages($city, $category, $target, 0, 50)));
 	}
 
