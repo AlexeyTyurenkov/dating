@@ -64,7 +64,7 @@
 		echo $form->error($model,'target_id'); 
                 ?>
 	</div>
-	<div class="row">
+	<div class="row inline">
 		<?php echo $form->textField($model,'age', array('placeholder'=>'Ваш возраст','class'=>'headerText')); ?>
 		<?php echo $form->error($model,'age'); ?>
 	</div>
