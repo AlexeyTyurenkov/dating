@@ -45,6 +45,7 @@ body
 {
 	padding: 10px 20px;
 	font-size: 200%;
+        text-align: center;
 }
 
 #mainmenu
@@ -239,6 +240,6 @@ div.counterfield
     border: 1px solid #00ffcc;
     background-color: #00ffcc;
     text-align: center;
-    font-size: 14pt;
+    font-size: 14px/22px;
     color: black;
 }
