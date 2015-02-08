@@ -45,21 +45,21 @@
 	<div class="row bigSelector">
 
                 <?php 
-                echo $form->dropDownList($model, 'city_id', CHtml::listData(City::model()->findAll(), 'id', 'name'), array('empty'=>"Выберите город...")); 
+                echo $form->dropDownList($model, 'city_id', CHtml::listData(City::model()->findAll(), 'id', 'name'), array('empty'=>"Выберите город...", 'class'=>'selectField')); 
                 echo $form->error($model,'city_id');
 		 ?>
 	</div>
 
 	<div class="row bigSelector">
 		<?php 
-		echo $form->dropDownList($model, 'category_id', CHtml::listData(Category::model()->findAll(), 'id', 'name'), array('empty'=>"Выберите цель..."));
+		echo $form->dropDownList($model, 'category_id', CHtml::listData(Category::model()->findAll(), 'id', 'name'), array('empty'=>"Выберите цель...",'class'=>'selectFieldInline'));
 		echo $form->error($model,'category_id'); 
                 ?>
 	</div>
 
 	<div class="row bigSelector">
 		<?php 
-		echo $form->dropDownList($model, 'target_id', CHtml::listData(Target::model()->findAll(), 'id', 'name'), array('empty'=>"Выберите категорию...")); 
+		echo $form->dropDownList($model, 'target_id', CHtml::listData(Target::model()->findAll(), 'id', 'name'), array('empty'=>"Выберите категорию...",'class'=>'selectFieldInline')); 
 		echo $form->error($model,'target_id'); 
                 ?>
 	</div>

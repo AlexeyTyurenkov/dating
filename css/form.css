@@ -179,3 +179,25 @@ div.row .invalidated
     margin-right: 10px;
     
 }
+
+.selectField
+{
+    font-size:16px; 
+    height:24px; 
+    width:280px;
+    border: 2px solid;
+    padding: 1px;
+    
+}
+
+
+.selectFieldInline
+{
+    font-size:16px; 
+    height:24px; 
+    width:280px;
+    display:inline;
+    border: 2px solid;
+    padding: 1px;
+       
+}
