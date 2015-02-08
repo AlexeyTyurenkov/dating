@@ -46,7 +46,7 @@
 
                 <?php 
                 echo $form->labelEx($model,'city_id');
-                echo $form->dropDownList($model, 'city_id', CHtml::listData(City::model()->findAll(), 'id', 'name')); 
+                echo $form->dropDownList($model, 'city_id', CHtml::listData(City::model()->findAll(), 'id', 'name'), array('empty'=>"Выберите город...")); 
                 echo $form->error($model,'city_id');
 		 ?>
 	</div>
@@ -54,7 +54,7 @@
 	<div class="row">
 		<?php 
                 echo $form->labelEx($model,'category_id');
-		echo $form->dropDownList($model, 'category_id', CHtml::listData(Category::model()->findAll(), 'id', 'name'));
+		echo $form->dropDownList($model, 'category_id', CHtml::listData(Category::model()->findAll(), 'id', 'name'), array('empty'=>"Выберите цель..."));
 		echo $form->error($model,'category_id'); 
                 ?>
 	</div>
@@ -62,7 +62,7 @@
 	<div class="row">
 		<?php 
                 echo $form->labelEx($model,'target_id'); 
-		echo $form->dropDownList($model, 'target_id', CHtml::listData(Target::model()->findAll(), 'id', 'name')); 
+		echo $form->dropDownList($model, 'target_id', CHtml::listData(Target::model()->findAll(), 'id', 'name'), array('empty'=>"Выберите категорию...")); 
 		echo $form->error($model,'target_id'); 
                 ?>
 	</div>
