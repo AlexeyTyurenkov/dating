@@ -263,6 +263,7 @@ div.age
 {
     font-size: 14px;
     width: 30%;
+    float: left;
     display: inline-block;
     padding-bottom: 5px;
     padding-top: 5px;
@@ -276,4 +277,6 @@ div.emptyspace
 {
     width: 40%;
     display: inline-block;
+    float: right;
+    
 }
