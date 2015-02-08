@@ -113,7 +113,7 @@ class SiteController extends Controller
                 $email = Yii::app()->request->getPost('email');
                 if(!isset($email))
                 {
-                   throw new CHttpException('Illegal method',400); 
+                   throw new CHttpException(400,'Illegal method'); 
                 }
                     
                 $user = User::model()->find("email = '".$email."'");
@@ -125,7 +125,7 @@ class SiteController extends Controller
                    $user->password = $this->random_password();
                    if(!$user->save())
                    {
-                       throw new CHttpException('Cannot save to database',500);
+                       throw new CHttpException(500,'Cannot save to database');
                    }             
                 }
                 echo $user->id;
@@ -133,7 +133,7 @@ class SiteController extends Controller
             }
             else 
             {
-                throw new CHttpException('Illegal method',400);
+                throw new CHttpException(400,'Illegal method');
             }
 
             
