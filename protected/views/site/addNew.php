@@ -64,16 +64,16 @@
                 ?>
 	</div>
 	<div class="row">
-		<?php echo $form->textField($model,'age', array('placeholder'=>'Ваш возраст')); ?>
+		<?php echo $form->textField($model,'age', array('placeholder'=>'Ваш возраст','class'=>'headerText')); ?>
 		<?php echo $form->error($model,'age'); ?>
 	</div>
 	<div class="row">
-		<?php echo $form->textField($model,'header',array('placeholder'=>'Введите заголовок...')); ?>
+		<?php echo $form->textField($model,'header',array('placeholder'=>'Введите заголовок...','class'=>'headerText')); ?>
 		<?php echo $form->error($model,'header'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->textArea($model,'text',array('placeholder'=>'Введите текст...')); ?>
+		<?php echo $form->textArea($model,'text',array('placeholder'=>'Введите текст...','class'=>'mainText')); ?>
 		<?php echo $form->error($model,'text'); ?>
 	</div>
 
