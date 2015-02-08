@@ -163,12 +163,12 @@ div.wide.form .buttons, div.wide.form .hint, div.wide.form .errorMessage
 	padding-left: 110px;
 }
 
-text.validated
+div.row text.validated
 {
     border: 2px solid #00ffcc;
 }
 
-text.invalidated
+div.row text.invalidated
 {
     border: 2px solid  #ff3366;
 }
