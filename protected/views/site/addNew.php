@@ -20,7 +20,7 @@
         <p class="note">Fields with <span class="required">*</span> are required.</p>
 
                 <?php echo $form->errorSummary($model); ?>
-	<div class="row">
+	<div class="row bigSelector">
 
             <?php echo CHtml::textField('email', '', array('placeholder'=>'Введите email',
                                                            'id' => 'email',
@@ -42,7 +42,7 @@
 		<?php echo $form->error($model,'user_id'); ?>
 	</div>
 
-	<div class="row">
+	<div class="row bigSelector">
 
                 <?php 
                 echo $form->dropDownList($model, 'city_id', CHtml::listData(City::model()->findAll(), 'id', 'name'), array('empty'=>"Выберите город...")); 
@@ -50,14 +50,14 @@
 		 ?>
 	</div>
 
-	<div class="row">
+	<div class="row bigSelector">
 		<?php 
 		echo $form->dropDownList($model, 'category_id', CHtml::listData(Category::model()->findAll(), 'id', 'name'), array('empty'=>"Выберите цель..."));
 		echo $form->error($model,'category_id'); 
                 ?>
 	</div>
 
-	<div class="row">
+	<div class="row bigSelector">
 		<?php 
 		echo $form->dropDownList($model, 'target_id', CHtml::listData(Target::model()->findAll(), 'id', 'name'), array('empty'=>"Выберите категорию...")); 
 		echo $form->error($model,'target_id'); 
