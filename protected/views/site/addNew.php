@@ -43,7 +43,7 @@
 		<?php echo $form->error($model,'user_id'); ?>
 	</div>
 
-	<div class="row bigSelector">
+	<div class="row">
 
                 <?php 
                 echo $form->dropDownList($model, 'city_id', CHtml::listData(City::model()->findAll(), 'id', 'name'), array('empty'=>"Выберите город...", 'class'=>'selectField')); 
@@ -51,14 +51,14 @@
 		 ?>
 	</div>
 
-	<div class="row bigSelector">
+	<div class="row inline">
 		<?php 
 		echo $form->dropDownList($model, 'category_id', CHtml::listData(Category::model()->findAll(), 'id', 'name'), array('empty'=>"Выберите цель...",'class'=>'selectFieldInline'));
 		echo $form->error($model,'category_id'); 
                 ?>
 	</div>
 
-	<div class="row bigSelector">
+	<div class="row inline">
 		<?php 
 		echo $form->dropDownList($model, 'target_id', CHtml::listData(Target::model()->findAll(), 'id', 'name'), array('empty'=>"Выберите категорию...",'class'=>'selectFieldInline')); 
 		echo $form->error($model,'target_id'); 

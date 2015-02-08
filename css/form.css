@@ -231,3 +231,8 @@ div.row .invalidated
     border-radius: 5px;
     border: 1px solid black;
 }
+
+.inline
+{
+    display: inline;
+}
