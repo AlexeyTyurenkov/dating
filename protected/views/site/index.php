@@ -75,7 +75,7 @@ foreach ($postsArray as $post)
     echo CHtml::tag('hr/');
 }
 ?>
-
+<div style="text-align: center">
 <?php
                             
 
@@ -91,3 +91,4 @@ foreach ($postsArray as $post)
 
           
 ?>
+</div>
