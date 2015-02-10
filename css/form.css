@@ -246,3 +246,7 @@ div.row .invalidated
     padding: 1px;
     border-radius: 5px;
 }
+.filterField
+{
+    width: 2em;
+}

@@ -5,7 +5,6 @@
 
 <div class="foriframe">
 <?php
-echo CHtml::link("Добавить объявление", array('addNew'));
 echo CHtml::beginForm();
 echo CHtml::tag('span');
 echo CHtml::dropDownList('city', $cityPreselected, CHtml::listData(City::model()->findAll(), 'id', 'name'),array('empty'=>"Все города", 'class' => "bigSelector"));
@@ -17,9 +16,9 @@ echo CHtml::tag('span');
 echo CHtml::dropDownList('target', $targetPreselected, CHtml::listData(Target::model()->findAll(), 'id', 'name'),array('empty'=>"Все категории", 'class' => "bigSelector"));
 echo CHtml::tag('/span');
 echo "Возраст от:";
-echo CHtml::textField('minAge');
+echo CHtml::textField('minAge', array("class" => 'filterField'));
 echo "до:";
-echo CHtml::textField('maxAge');
+echo CHtml::textField('maxAge', array("class" => 'filterField'));
 echo CHtml::submitButton('Фильтр');
 
 echo CHtml::endForm();
