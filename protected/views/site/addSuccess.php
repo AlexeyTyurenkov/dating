@@ -10,8 +10,8 @@
 
 <header>Объявление добавлено успешно</header>
 <div>
-<?php  CHtml::link("Вернуться на главную", Yii::app()->createUrl("site/index")); ?>
+<?php  echo CHtml::link("Вернуться на главную", Yii::app()->createUrl("site/index")); ?>
 </div>
 <div>
-   <?php  CHtml::link("Добавить следующее", Yii::app()->createUrl("site/addNew")); ?>
+   <?php  echo CHtml::link("Добавить следующее", Yii::app()->createUrl("site/addNew")); ?>
 </div>

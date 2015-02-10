@@ -51,7 +51,7 @@ echo CHtml::endForm();
         </div>
         <div style="width: 50%; display: inline">
             <?php                
-            if ($offset + $limit > count($postsArray)) 
+            if ($limit > (count($postsArray) - $offset*$limit))
             {
                 echo CHtml::link("Предыдущие " . $offset, Yii::app()->createAbsoluteUrl('site/index', array(
                     'city'     => $cityPreselected,
