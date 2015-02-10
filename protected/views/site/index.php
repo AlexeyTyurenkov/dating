@@ -1,4 +1,4 @@
-<div style="text-align: center; width:40%;">
+<div style="text-align: center; width:100%; margin-bottom: 5px;">
     <?php echo CHtml::link("Добавить объявление", array('addNew'));?>
     
 </div>
