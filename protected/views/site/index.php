@@ -44,7 +44,7 @@ echo CHtml::endForm();
                     'maxAge'   => $maxAgeSelected,
                     'offset'   => $offset + $limit,
                     'limit'    => $limit
-                )));
+                )),array('method'=> 'POST'));
 
             ?>
 
@@ -61,7 +61,7 @@ echo CHtml::endForm();
                     'maxAge'   => $maxAgeSelected,
                     'offset'   => $offset - $limit,
                     'limit'    => $limit
-                )));
+                )),array('method'=> 'POST'));
             }
             ?>
         </div>
@@ -74,4 +74,20 @@ foreach ($postsArray as $post)
     $this->renderPartial("_smallPost", array('model'=>$post));
     echo CHtml::tag('hr/');
 }
+?>
+
+<?php
+                            
+
+                echo CHtml::link("Предыдущие " . $limit, Yii::app()->createAbsoluteUrl('site/index', array(
+                    'city'     => $cityPreselected,
+                    'category' => $categoryPreselected,
+                    'target'   => $targetPreselected,
+                    'minAge'   => $minAgeSelected,
+                    'maxAge'   => $maxAgeSelected,
+                    'offset'   => $offset + $limit,
+                    'limit'    => $limit
+                )),array('method'=> 'POST'));
+
+          
 ?>
