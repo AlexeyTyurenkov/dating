@@ -250,3 +250,10 @@ div.row .invalidated
 {
     width: 2em;
 }
+
+.bigSendButton
+{
+    text-align: center;
+    font: 16px;
+    padding: 4px;
+}

@@ -91,7 +91,7 @@
 
 
 
-	<div class="row buttons">
+	<div class="row buttons bigSendButton">
 		<?php echo CHtml::submitButton('Отправить'); ?>
 	</div>
 
