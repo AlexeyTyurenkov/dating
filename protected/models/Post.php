@@ -179,9 +179,9 @@ class Post extends CActiveRecord
         }
         
         
-        public static function getNextMessages($city,$category,$target,$offset,$limit)
+        public static function getNextMessages($city,$category,$target,$minAge,$maxAge,$offset,$limit)
         {
-            $allPosts = Post::model()->filterCity($city)->filterCategory($category)->filterTarget($target)->filterAge()->pagination($offset,$limit)->findAll();
+            $allPosts = Post::model()->filterCity($city)->filterCategory($category)->filterTarget($target)->filterAge($minAge,$maxAge)->pagination($offset,$limit)->findAll();
             return $allPosts;
         }
 }

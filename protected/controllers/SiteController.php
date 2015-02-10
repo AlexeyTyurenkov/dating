@@ -34,11 +34,14 @@ class SiteController extends Controller
             $city = Yii::app()->request->getParam('city',0);
             $category = Yii::app()->request->getParam('category',0);
             $target   = Yii::app()->request->getParam('target',0);
-            echo print_r($_POST);
+            $minAge   = Yii::app()->request->getParam('minAge',0);
+            $maxAge   = Yii::app()->request->getParam('maxAge',0);
             $this->render('index', array('cityPreselected'     => $city, 
                                          'categoryPreselected' => $category,
                                          'targetPreselected'    => $target,
-                                         'postsArray'      => Post::getNextMessages($city, $category, $target, 0, 50)));
+                                         'minAgeSelected'       => $minAge,
+                                         'maxAgeSelected'       => $maxAge,
+                                         'postsArray'      => Post::getNextMessages($city, $category, $target, $minAge,$maxAge, 0, 50)));
 	}
 
 	/**
@@ -100,6 +103,7 @@ class SiteController extends Controller
                 {
                     // form inputs are valid, do something here
                     $model->save();
+                    $this->render('addSuccess');
                     return;
                 }
             }
