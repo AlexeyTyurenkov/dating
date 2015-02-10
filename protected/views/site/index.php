@@ -5,7 +5,7 @@
 
 <div class="foriframe">
 <?php
-echo CHtml::beginForm();
+echo CHtml::beginForm('site/index');
 echo CHtml::tag('span');
 echo CHtml::dropDownList('city', $cityPreselected, CHtml::listData(City::model()->findAll(), 'id', 'name'),array('empty'=>"Все города", 'class' => "bigSelector"));
 echo CHtml::tag('/span');
