@@ -251,9 +251,9 @@ div.row .invalidated
     width: 2em;
 }
 
-.bigSendButton
+div.bigSendButton
 {
     text-align: center;
-    font: 16px;
+    font-size: 16px;
     padding: 4px;
 }
