@@ -16,9 +16,9 @@ echo CHtml::tag('span');
 echo CHtml::dropDownList('target', $targetPreselected, CHtml::listData(Target::model()->findAll(), 'id', 'name'),array('empty'=>"Все категории", 'class' => "bigSelector"));
 echo CHtml::tag('/span');
 echo "Возраст от:";
-echo CHtml::textField('minAge', array("class" => 'filterField'));
+echo CHtml::textField('minAge', $minAgeSelected,array("class" => 'filterField'));
 echo "до:";
-echo CHtml::textField('maxAge', array("class" => 'filterField'));
+echo CHtml::textField('maxAge', $maxAgeSelected,array("class" => 'filterField'));
 echo CHtml::submitButton('Фильтр');
 
 echo CHtml::endForm();
