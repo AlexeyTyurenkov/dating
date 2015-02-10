@@ -34,8 +34,8 @@ class SiteController extends Controller
             $city     = Yii::app()->request->getParam('city',0);
             $category = Yii::app()->request->getParam('category',0);
             $target   = Yii::app()->request->getParam('target',0);
-            $minAge   = Yii::app()->request->getParam('minAge',0);
-            $maxAge   = Yii::app()->request->getParam('maxAge',0);
+            $minAge   = Yii::app()->request->getParam('minAge',18);
+            $maxAge   = Yii::app()->request->getParam('maxAge',99);
             $offset   = Yii::app()->request->getParam('offset',0);
             $limit    = Yii::app()->request->getParam('limit',50);
             $this->render('index', array('cityPreselected'     => $city, 
