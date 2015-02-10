@@ -181,6 +181,7 @@ class Post extends CActiveRecord
         public function orderByDate()
         {
             $this->getDbCriteria()->order = 'create_date DESC';
+            return $this;
         }
         
         public static function getNextMessages($city,$category,$target,$minAge,$maxAge,$offset,$limit)

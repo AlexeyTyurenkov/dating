@@ -31,7 +31,7 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
-            $city = Yii::app()->request->getParam('city',0);
+            $city     = Yii::app()->request->getParam('city',0);
             $category = Yii::app()->request->getParam('category',0);
             $target   = Yii::app()->request->getParam('target',0);
             $minAge   = Yii::app()->request->getParam('minAge',0);
