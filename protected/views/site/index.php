@@ -19,6 +19,8 @@ echo "Возраст от:";
 echo CHtml::textField('minAge', $minAgeSelected,array("class" => 'filterField'));
 echo "до:";
 echo CHtml::textField('maxAge', $maxAgeSelected,array("class" => 'filterField'));
+echo CHtml::hiddenField('offset', $offset);
+echo CHtml::hiddenField('limit', $limit);
 echo CHtml::submitButton('Фильтр');
 
 echo CHtml::endForm();
@@ -30,7 +32,42 @@ echo CHtml::endForm();
     <?php
         echo "Всего ".  count($postsArray)." найдено";
     ?>
+    <div class="pagination">
+        <div style="width: 50%; display: inline">
+            <?php                
+            if ($offset != 0) 
+            {
+                echo CHtml::link("Предыдущие " . $limit, Yii::app()->createAbsoluteUrl('site/index', array(
+                    'city'     => $cityPreselected,
+                    'category' => $categoryPreselected,
+                    'target'   => $targetPreselected,
+                    'minAge'   => $minAgeSelected,
+                    'maxAge'   => $maxAgeSelected,
+                    'offset'   => $offset - $limit,
+                    'limit'    => $limit
+                )));
+            }
+            ?>
+        </div>
+        <div style="width: 50%; display: inline">
+            <?php                
+            if ($offset + $limit > count($postsArray)) 
+            {
+                echo CHtml::link("Предыдущие " . $offset, Yii::app()->createAbsoluteUrl('site/index', array(
+                    'city'     => $cityPreselected,
+                    'category' => $categoryPreselected,
+                    'target'   => $targetPreselected,
+                    'minAge'   => $minAgeSelected,
+                    'maxAge'   => $maxAgeSelected,
+                    'offset'   => $offset + $limit,
+                    'limit'    => $limit
+                )));
+            }
+            ?>
+        </div>
+    </div>
 </div>
+
 <?php 
 foreach ($postsArray as $post) 
 {

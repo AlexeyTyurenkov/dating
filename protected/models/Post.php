@@ -178,10 +178,14 @@ class Post extends CActiveRecord
             return $this;
         }
         
+        public function orderByDate()
+        {
+            $this->getDbCriteria()->order = 'create_date DESC';
+        }
         
         public static function getNextMessages($city,$category,$target,$minAge,$maxAge,$offset,$limit)
         {
-            $allPosts = Post::model()->filterCity($city)->filterCategory($category)->filterTarget($target)->filterAge($minAge,$maxAge)->pagination($offset,$limit)->findAll();
+            $allPosts = Post::model()->filterCity($city)->filterCategory($category)->filterTarget($target)->filterAge($minAge,$maxAge)->pagination($offset,$limit)->orderByDate()->findAll();
             return $allPosts;
         }
 }
