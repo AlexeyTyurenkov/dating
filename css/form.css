@@ -257,3 +257,8 @@ div.bigSendButton
     font-size: 16px;
     padding: 4px;
 }
+
+div.bigSelector > button
+{
+    font-size: 16px;
+}
