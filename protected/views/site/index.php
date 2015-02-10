@@ -35,23 +35,7 @@ echo CHtml::endForm();
     <div class="pagination">
         <div style="width: 50%; display: inline">
             <?php                
-            if ($offset != 0) 
-            {
-                echo CHtml::link("Предыдущие " . $limit, Yii::app()->createAbsoluteUrl('site/index', array(
-                    'city'     => $cityPreselected,
-                    'category' => $categoryPreselected,
-                    'target'   => $targetPreselected,
-                    'minAge'   => $minAgeSelected,
-                    'maxAge'   => $maxAgeSelected,
-                    'offset'   => $offset - $limit,
-                    'limit'    => $limit
-                )));
-            }
-            ?>
-        </div>
-        <div style="width: 50%; display: inline">
-            <?php                
-            if ($limit > (count($postsArray) - $offset*$limit))
+            if ($limit > (count($postsArray) - ($offset + 1)*$limit))
             {
                 echo CHtml::link("Предыдущие " . $offset, Yii::app()->createAbsoluteUrl('site/index', array(
                     'city'     => $cityPreselected,
@@ -60,6 +44,23 @@ echo CHtml::endForm();
                     'minAge'   => $minAgeSelected,
                     'maxAge'   => $maxAgeSelected,
                     'offset'   => $offset + $limit,
+                    'limit'    => $limit
+                )));
+            }
+            ?>
+
+        </div>
+        <div style="width: 50%; display: inline">
+            <?php                
+            if ($offset != 0) 
+            {
+                echo CHtml::link("Следующие " . $limit, Yii::app()->createAbsoluteUrl('site/index', array(
+                    'city'     => $cityPreselected,
+                    'category' => $categoryPreselected,
+                    'target'   => $targetPreselected,
+                    'minAge'   => $minAgeSelected,
+                    'maxAge'   => $maxAgeSelected,
+                    'offset'   => $offset - $limit,
                     'limit'    => $limit
                 )));
             }
