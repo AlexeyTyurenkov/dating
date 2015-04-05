@@ -185,4 +185,18 @@ class SiteController extends Controller
             $post->activate();
             $this->render('activated',array('model'=>$post));
         }
+        
+        public function actionSendmail() 
+        {
+            $response = new Response();
+            if(isset($_POST['Response']))
+            {
+                $response->attributes=$_POST['Response'];
+                
+            }
+            else
+            {
+                echo 'WWWWW';   
+            }
+        }
 }

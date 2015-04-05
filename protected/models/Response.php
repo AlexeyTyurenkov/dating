@@ -16,11 +16,20 @@ class Response extends CFormModel{
     public $username;
     public $senderemail;
     public $message;
-    
+    public $post_id;
+         
+    private $post;
     public function rules()
     {
         return array(
-            array('username, senderemail, message', 'required'),
+            array('username, senderemail, message, post_id', 'required'),
+            array('post_id','checkPost')
         );
+    }
+    
+    public function checkPost()
+    {
+        $this->post=Post::model()->findByPk($this->post_id);
+        return isset($this->post);
     }
 }

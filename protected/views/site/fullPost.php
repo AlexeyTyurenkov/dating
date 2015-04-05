@@ -17,6 +17,6 @@
 <div id="response">
     <?php 
     
-    $this->renderPartial('sendResponse')?>
+    $this->renderPartial('sendResponse', array('model'=>$response, 'post_id'=>$model->id))?>
     
 </div>
