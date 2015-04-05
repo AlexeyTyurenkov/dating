@@ -13,13 +13,30 @@
  */
 class Mailer {
     
-    
+    private $addressToSend;
+    private $addressToReply;
+    private $addressFrom;
+    private $nameFrom;
+    private $subject;
+    private $message;
     //put your code here
+    
+    private function sendmail()
+    {
+        $headers="From: ".$this->addressFrom."\r\nReply-To: ".$this->addressToReply;
+        mail($this->addressToSend,  $this->subject, $this->message,$headers);
+    }
+    
     public static function sendActivationLink(Post $post)
     {
         $mailer = new Mailer();
-        $headers="From: no-reply@dating.itatests.com\r\nReply-To: alterego4@gmail.com";
-        mail('alesha.pukhov@gmail.com', "some Subject", "some Message",$headers);
+        $mailer->addressToSend = $post->user->email;
+        $mailer->addressToReply = "no-reply@dating.itatests.com";
+        $mailer->addressFrom    = "no-reply@dating.itatests.com";
+        $mailer->nameFrom       = "Безкоштовні оголошення";
+        $mailer->subject        = "Активація Вашого оголошення";
+        $mailer->message        = "Ваше оголошення очікує на активацію перейдіть за посиланням ".Yii::app()->createUrl('site/activation',array('code'=>$post->activationCode));
+        $mailer->sendmail();
     }
 }
 
