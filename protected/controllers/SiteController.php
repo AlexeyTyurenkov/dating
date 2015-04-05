@@ -182,6 +182,6 @@ class SiteController extends Controller
                     throw new CHttpException(404,"No such post");                   
             }
             $post->activate();
-            $this->render('fullPost',array('model'=>$post));
+            $this->render('activated',array('model'=>$post));
         }
 }

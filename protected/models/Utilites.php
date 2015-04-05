@@ -17,7 +17,7 @@ class Utilites {
         
         public static function activation_link( $length = 18 ) 
         {
-            $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@$";
+            $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             $password = substr( str_shuffle( $chars ), 0, $length );
             return $password;
         }
