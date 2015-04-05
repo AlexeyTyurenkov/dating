@@ -169,4 +169,19 @@ class SiteController extends Controller
             }
             $this->render('fullPost',array('model'=>$model));
         }
+        
+        public function actionActivation($code) 
+        {
+            if(!$code)
+            {
+                throw new CHttpException(400,"No such post");
+            }
+            $post = Post::model()->findByAttributes(array('activationCode'=>$code));
+            if(!$post)
+            {
+                    throw new CHttpException(404,"No such post");                   
+            }
+            $post->activate();
+            $this->render('fullPost',array('model'=>$post));
+        }
 }

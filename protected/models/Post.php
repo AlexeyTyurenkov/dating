@@ -156,6 +156,14 @@ class Post extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        public function activate()
+        {
+            $this->active = 1;
+            $this->activationCode = NULL;
+            $this->save();
+        }
+        
         public function filterCity($city = 0)
         {
             if($city != 0)
