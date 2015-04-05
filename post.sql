@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 05, 2015 at 11:39 AM
+-- Generation Time: Apr 05, 2015 at 11:41 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -26,6 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `post`
 --
 
+DROP TABLE IF EXISTS `post`;
 CREATE TABLE IF NOT EXISTS `post` (
 `id` int(10) unsigned NOT NULL,
   `user_id` int(10) unsigned NOT NULL COMMENT 'Пользователь',
