@@ -36,7 +36,7 @@ class Mailer {
         $mailer->addressFrom    = "no-reply@dating.itatests.com";
         $mailer->nameFrom       = "Безкоштовні оголошення";
         $mailer->subject        = "Активація Вашого оголошення";
-        $mailer->message        = "Ваше оголошення очікує на активацію перейдіть за посиланням ".Yii::app()->createUrl('site/activation',array('code'=>$post->activationCode));
+        $mailer->message        = "Ваше оголошення очікує на активацію перейдіть за посиланням ".Yii::app()->createAbsoluteUrl('site/activation',array('code'=>$post->activationCode));
         $mailer->sendmail();
     }
 }
