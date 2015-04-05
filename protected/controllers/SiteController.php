@@ -163,11 +163,12 @@ class SiteController extends Controller
         {
             $id = Yii::app()->request->getParam('post_id');
             $model=Post::model()->findByPk($id);
+            $response = new Response();
             if(!isset($model))
             {
                 throw new CHttpException(404,"No such post");
             }
-            $this->render('fullPost',array('model'=>$model));
+            $this->render('fullPost',array('model'=>$model,'response'=>$response));
         }
         
         public function actionActivation($code) 
