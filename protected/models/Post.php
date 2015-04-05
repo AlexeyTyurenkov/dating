@@ -15,7 +15,8 @@
  * @property integer $active
  * @property integer $abused
  * @property integer $age
- *
+ * @property string $activationCode
+ * 
  * The followings are the available model relations:
  * @property City $city
  * @property User $user
@@ -31,8 +32,30 @@ class Post extends CActiveRecord
 	{
 		return 'post';
 	}
+        
+        public function beforeSave()
+        {
+            return parent::beforeSave() && $this->generateActivationLink();
+        }
 
-	/**
+        public function generateActivationLink()
+        {
+            if($this->isNewRecord)
+            {
+                $this->activationCode = Utilites::activation_link();
+            }
+        }
+        
+        public function afterSave()
+        {
+            parent::afterSave();
+            if($this->isNewRecord)
+            {
+                Mailer::sendActivationLink($this);
+            }
+        }
+
+        /**
 	 * @return array validation rules for model attributes.
 	 */
 	public function rules()

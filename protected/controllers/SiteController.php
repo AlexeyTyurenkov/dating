@@ -119,8 +119,6 @@ class SiteController extends Controller
                 {
                     // form inputs are valid, do something here
                     $model->save();
-                    $headers="From: no-reply@datin.itatests.com\r\nReply-To: alterego4@gmail.com";
-                    mail('alesha.pukhov@gmail.com', "some Subject", "some Message",$headers);
                     $this->render('addSuccess');
                     return;
                 }
@@ -144,7 +142,7 @@ class SiteController extends Controller
                     
                    $user = new User();
                    $user->email = $email;
-                   $user->password = $this->random_password();
+                   $user->password = Utilites::random_password();
                    if(!$user->save())
                    {
                        throw new CHttpException(500,'Cannot save to database');
@@ -159,12 +157,7 @@ class SiteController extends Controller
             }
         }
        
-        private function random_password( $length = 18 ) 
-        {
-            $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-=+;:,.?";
-            $password = substr( str_shuffle( $chars ), 0, $length );
-            return $password;
-        }
+
         
         public function actionShowPost()
         {
