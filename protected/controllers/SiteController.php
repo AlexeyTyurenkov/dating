@@ -38,14 +38,32 @@ class SiteController extends Controller
             $maxAge   = Yii::app()->request->getParam('maxAge',99);
             $offset   = Yii::app()->request->getParam('offset',0);
             $limit    = Yii::app()->request->getParam('limit',50);
-            $this->render('index', array('cityPreselected'     => $city, 
+            $postsDataprovider = Post::getDataProvider($city, $category, $target, $minAge, $maxAge, 5);
+            if(Yii::app()->request->isAjaxRequest){
+                $this->renderPartial('_fullList', array('cityPreselected'     => $city, 
                                          'categoryPreselected' => $category,
                                          'targetPreselected'    => $target,
                                          'minAgeSelected'       => $minAge,
                                          'maxAgeSelected'       => $maxAge,
                                          'limit'                => $limit,
                                          'offset'               => $offset,
-                                         'postsArray'      => Post::getNextMessages($city, $category, $target, $minAge,$maxAge, $offset, $limit)));
+                                         'dataProvider'         => $postsDataprovider));
+                // Завершаем приложение
+                Yii::app()->end();
+            }
+            else 
+            {
+            // если запрос не асинхронный, отдаём форму полностью
+                $this->render('index', array('cityPreselected'     => $city, 
+                                         'categoryPreselected' => $category,
+                                         'targetPreselected'    => $target,
+                                         'minAgeSelected'       => $minAge,
+                                         'maxAgeSelected'       => $maxAge,
+                                         'limit'                => $limit,
+                                         'offset'               => $offset,
+                                         'dataProvider'         => $postsDataprovider));
+            }
+
 	}
 
 	/**

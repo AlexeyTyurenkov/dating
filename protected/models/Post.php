@@ -189,4 +189,19 @@ class Post extends CActiveRecord
             $allPosts = Post::model()->filterCity($city)->filterCategory($category)->filterTarget($target)->filterAge($minAge,$maxAge)->pagination($offset,$limit)->orderByDate()->findAll();
             return $allPosts;
         }
+        
+        public static function getDataProvider($city,$category,$target,$minAge,$maxAge,$pagesSize)
+        {
+           
+            return new CActiveDataProvider('Post', array(
+                    'criteria'=> Post::model()->filterCity($city)->
+                                                filterCategory($category)->
+                                                filterTarget($target)->
+                                                filterAge($minAge,$maxAge)->
+                                                orderByDate()->getDBCriteria(),
+                    'pagination'=>array(
+                        'pageSize'=>$pagesSize,
+                    ),
+            ));
+        }
 }
