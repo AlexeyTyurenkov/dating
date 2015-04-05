@@ -119,7 +119,7 @@ class SiteController extends Controller
                 {
                     // form inputs are valid, do something here
                     $model->save();
-                    $this->render('addSuccess');
+                    $this->render('addSuccess',array('model'=>$model));
                     return;
                 }
             }

@@ -10,6 +10,11 @@
 
 <header>Объявление добавлено успешно</header>
 <div>
+    На Вашу пошту <strong>
+        <?php    echo $model->user->email; ?>
+    </strong> було відправлено листа з посиланням на активацію оголошення. 
+</div>
+<div>
 <?php  echo CHtml::link("Вернуться на главную", Yii::app()->createUrl("site/index")); ?>
 </div>
 <div>
