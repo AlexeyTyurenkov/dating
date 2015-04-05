@@ -35,7 +35,8 @@ class Post extends CActiveRecord
         
         public function beforeSave()
         {
-            return parent::beforeSave() && $this->generateActivationLink();
+             $this->generateActivationLink();
+            return parent::beforeSave();
         }
 
         public function generateActivationLink()
@@ -51,6 +52,7 @@ class Post extends CActiveRecord
             parent::afterSave();
             if($this->isNewRecord)
             {
+
                 Mailer::sendActivationLink($this);
             }
         }
