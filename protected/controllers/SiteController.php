@@ -40,13 +40,7 @@ class SiteController extends Controller
             $limit    = Yii::app()->request->getParam('limit',50);
             $postsDataprovider = Post::getDataProvider($city, $category, $target, $minAge, $maxAge, 5);
             if(Yii::app()->request->isAjaxRequest){
-                $this->renderPartial('_fullList', array('cityPreselected'     => $city, 
-                                         'categoryPreselected' => $category,
-                                         'targetPreselected'    => $target,
-                                         'minAgeSelected'       => $minAge,
-                                         'maxAgeSelected'       => $maxAge,
-                                         'limit'                => $limit,
-                                         'offset'               => $offset,
+                $this->renderPartial('_fullList', array(
                                          'dataProvider'         => $postsDataprovider));
                 // Завершаем приложение
                 Yii::app()->end();
@@ -125,6 +119,8 @@ class SiteController extends Controller
                 {
                     // form inputs are valid, do something here
                     $model->save();
+                    $headers="From: no-reply@datin.itatests.com\r\nReply-To: alterego4@gmail.com";
+                    mail('alesha.pukhov@gmail.com', "some Subject", "some Message",$headers);
                     $this->render('addSuccess');
                     return;
                 }
