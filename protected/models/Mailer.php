@@ -32,7 +32,7 @@ class Mailer {
     {
         $mailer = new Mailer();
         $mailer->addressToSend = $post->user->email;
-        $mailer->addressToSend = "datings@mail.ua";
+        $mailer->addressToSend = "alterego4@gmail.com";
         $mailer->addressToReply = "no-reply@dating.itatests.com";
         $mailer->addressFrom    = "no-reply@dating.itatests.com";
         $mailer->nameFrom       = "Безкоштовні оголошення";
