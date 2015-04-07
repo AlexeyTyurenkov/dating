@@ -25,6 +25,7 @@ class Mailer {
     {
         $headers="From: ".$this->addressFrom."\r\nReply-To: ".$this->addressToReply;
         mail($this->addressToSend,  $this->subject, $this->message,$headers);
+        echo "Fire mail";
     }
     
     public static function sendActivationLink(Post $post)
