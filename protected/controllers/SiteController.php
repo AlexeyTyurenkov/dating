@@ -99,7 +99,7 @@ class SiteController extends Controller
             $this->render('_smallView',array('model'=>$model));
         }
         
-        public function actionAddNew()
+        public function actionAdd()
         {
             $model=new Post;
 
@@ -159,7 +159,7 @@ class SiteController extends Controller
        
 
         
-        public function actionShowPost()
+        public function actionShow()
         {
             $id = Yii::app()->request->getParam('post_id');
             $model=Post::model()->findByPk($id);
