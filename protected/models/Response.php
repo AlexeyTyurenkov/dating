@@ -27,16 +27,6 @@ class Response extends CFormModel{
             array('senderemail','email', 'message' => 'Поле {attribute} должно быть Е-mail')
         );
     }
-    
-    public function attributeNames()
-    {
-        $names = parent::attreibuteNames();
-        $names['username'] = "Ваше имя";
-        $names['username'] = "Ваше имя";
-        $names['username'] = "Ваше имя";
-        $names['username'] = "Ваше имя";
-        return $names;
-    }
 
         public function attributeLabels()
     {

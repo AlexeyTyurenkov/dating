@@ -200,7 +200,10 @@ class SiteController extends Controller
                     {
                         $this->render('fullPost',array('model'=>$post,'response'=>$response));
                     }
-                    $this->render('responseSended',array('model'=>$post,'response'=>$response)); 
+                    else 
+                    {
+                        $this->render('responseSended',array('model'=>$post,'response'=>$response)); 
+                    }
                 }
                 else
                 {

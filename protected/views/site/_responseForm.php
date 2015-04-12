@@ -17,9 +17,11 @@
 ));
 ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Все поля обязательны</p>
 
-	<?php echo $form->errorSummary($model); ?>
+	<?php echo $form->errorSummary($model,
+                "Исправьте следующие ошибки:"
+                ); ?>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'username'); ?>
@@ -41,7 +43,7 @@
 
         <?php echo $form->hiddenField($model,'post_id',array('value'=>$post_id));?>
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Submit'); ?>
+		<?php echo CHtml::submitButton('Отправить сообщение'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

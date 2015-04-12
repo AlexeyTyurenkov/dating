@@ -1,5 +1,5 @@
 
-<?php     $this->renderPartial('_commonNavigation'); ?>
+<?php     $this->renderPartial('_returnToMain'); ?>
 
 <div>
     <div><?php echo $model->header?> </div>
