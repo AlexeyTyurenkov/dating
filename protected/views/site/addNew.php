@@ -87,6 +87,13 @@
                 <?php echo $form->hiddenField($model, 'abused',array('value'=>0));?>
 		<?php echo $form->error($model,'abused'); ?>
 	</div>
+        <?php 
+            if (CCaptcha::checkRequirements() && Yii::app()->user->isGuest)
+            {        
+                $this->widget('ExtCaptcha');
+                echo $form->textField($model,'verifyCode',array('placeholder'=>'Введите символы с картинки...','class'=>'headerText'));
+            }
+        ?>
         </fieldset>
 
 

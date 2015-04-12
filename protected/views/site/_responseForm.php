@@ -1,8 +1,3 @@
-<?php
-/* @var $this ResponseController */
-/* @var $model Response */
-/* @var $form CActiveForm */
-?>
 
 <div class="form">
 
@@ -42,6 +37,16 @@
 	</div>
 
         <?php echo $form->hiddenField($model,'post_id',array('value'=>$post_id));?>
+        <div class="row">
+            <?php 
+            if (CCaptcha::checkRequirements() && Yii::app()->user->isGuest)
+            {        
+                $this->widget('ExtCaptcha');
+                echo $form->textField($model,'verifyCode',array('placeholder'=>'Введите символы с картинки...','class'=>'headerText'));
+                echo $form->error($model,'verifyCode');
+            }
+            ?>
+        </div>
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Отправить сообщение'); ?>
 	</div>
