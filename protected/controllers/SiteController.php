@@ -77,30 +77,7 @@ class SiteController extends Controller
 		}
 	}
 
-        public function actionSmallView()
-        {
-            $model=new Post;
 
-            // uncomment the following code to enable ajax-based validation
-            /*
-            if(isset($_POST['ajax']) && $_POST['ajax']==='post-_smallView-form')
-            {
-                echo CActiveForm::validate($model);
-                Yii::app()->end();
-            }
-            */
-
-            if(isset($_POST['Post']))
-            {
-                $model->attributes=$_POST['Post'];
-                if($model->validate())
-                {
-                    // form inputs are valid, do something here
-                    return;
-                }
-            }
-            $this->render('_smallView',array('model'=>$model));
-        }
         
         public function actionAdd()
         {
