@@ -32,12 +32,15 @@ class Mailer {
     {
         $mailer = new Mailer();
         $mailer->addressToSend = $post->user->email;
-        $mailer->addressToSend = "alterego4@gmail.com";
+        $mailer->addressToSend = "datings2015@gmail.com";
         $mailer->addressToReply = "no-reply@dating.itatests.com";
         $mailer->addressFrom    = "no-reply@dating.itatests.com";
-        $mailer->nameFrom       = "Безкоштовні оголошення";
+        $mailer->nameFrom       = "Сервис простых знакомств";
         $mailer->subject        = "Активація Вашого оголошення";
         $mailer->message        = "Ваше оголошення очікує на активацію перейдіть за посиланням ".Yii::app()->createAbsoluteUrl('site/activation',array('code'=>$post->activationCode));
+        
+        $mailer->message        = "Для редактирования воспользуйтесь ссылкой".Yii::app()->createAbsoluteUrl('site/edit',array('code'=>$post->editCode));
+        
         $mailer->sendmail();
     }
 }

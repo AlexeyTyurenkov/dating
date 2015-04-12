@@ -16,6 +16,7 @@
  * @property integer $abused
  * @property integer $age
  * @property string $activationCode
+ * @property string $editCode
  * 
  * The followings are the available model relations:
  * @property City $city
@@ -37,6 +38,7 @@ class Post extends CActiveRecord
         public function beforeSave()
         {
              $this->generateActivationLink();
+             $this->generateEditLink();
             return parent::beforeSave();
         }
 
@@ -45,6 +47,14 @@ class Post extends CActiveRecord
             if($this->isNewRecord)
             {
                 $this->activationCode = Utilites::activation_link();
+            }
+        }
+        
+        public function generateEditLink()
+        {
+            if($this->isNewRecord)
+            {
+                $this->editCode = Utilites::activation_link();
             }
         }
         

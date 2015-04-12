@@ -195,4 +195,19 @@ class SiteController extends Controller
                 throw new CHttpException(400,"No response");   
             }
         }
+        
+        public function actionEdit($code) 
+        {
+            if(!$code)
+            {
+                throw new CHttpException(400,"No such post");
+            }
+            $post = Post::model()->findByAttributes(array('editCode'=>$code));
+            if(!$post)
+            {
+                    throw new CHttpException(404,"No such post");                   
+            }
+            $post->activate();
+            $this->render('addNew',array('model'=>$post));
+        }        
 }
