@@ -22,14 +22,39 @@ class Response extends CFormModel{
     public function rules()
     {
         return array(
-            array('username, senderemail, message, post_id', 'required'),
-            array('post_id','checkPost')
+            array('username, senderemail, message, post_id', 'required',  'message'=>'Поле {attribute} должно быть заполенено'),
+            array('post_id','checkPost'),
+            array('senderemail','email', 'message' => 'Поле {attribute} должно быть Е-mail')
         );
     }
     
+    public function attributeNames()
+    {
+        $names = parent::attreibuteNames();
+        $names['username'] = "Ваше имя";
+        $names['username'] = "Ваше имя";
+        $names['username'] = "Ваше имя";
+        $names['username'] = "Ваше имя";
+        return $names;
+    }
+
+        public function attributeLabels()
+    {
+        $names['username'] = "Ваше имя";
+        $names['senderemail'] = "Ваша почта";
+        $names['message'] = "Сообщение";
+        return array_merge(parent::attributeLabels(), $names);
+    }
+
     public function checkPost()
     {
         $this->post=Post::model()->findByPk($this->post_id);
         return isset($this->post);
+    }
+    
+    public function getPost()
+    {
+        $this->post=Post::model()->findByPk($this->post_id);
+        return $this->post;
     }
 }

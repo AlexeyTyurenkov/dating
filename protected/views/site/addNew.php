@@ -17,7 +17,7 @@
 
 
         <fieldset>
-        <p class="note">Fields with <span class="required">*</span> are required.</p>
+        <p class="note">Все поля обязательны</p>
 
                 <?php echo $form->errorSummary($model); ?>
 	<div class="row bigSelector">

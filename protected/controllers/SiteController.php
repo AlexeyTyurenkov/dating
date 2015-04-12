@@ -189,14 +189,27 @@ class SiteController extends Controller
         public function actionSendmail() 
         {
             $response = new Response();
-            if(isset($_POST['Response']))
+            $rawRespone = Yii::app()->request->getParam('Response');
+            if(isset($rawRespone))
             {
-                $response->attributes=$_POST['Response'];
-                
+                $response->attributes=Yii::app()->request->getParam('Response');
+                if($response->checkPost())
+                {
+                    $post = $response->getPost();
+                    if(!$response->validate())
+                    {
+                        $this->render('fullPost',array('model'=>$post,'response'=>$response));
+                    }
+                    $this->render('responseSended',array('model'=>$post,'response'=>$response)); 
+                }
+                else
+                {
+                    throw new CHttpException(404,"No such post"); 
+                }
             }
             else
             {
-                echo 'WWWWW';   
+                throw new CHttpException(400,"No response");   
             }
         }
 }
