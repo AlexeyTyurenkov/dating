@@ -22,9 +22,16 @@
                 <?php echo $form->errorSummary($model); ?>
 	<div class="row bigSelector">
 
-            <?php echo CHtml::textField('email', '', array('placeholder'=>'Введите email',
+            <?php 
+            $emailvalue = "";
+            if(!$model->isNewRecord)
+            {
+                $emailvalue = $model->user->email;
+            }
+            echo CHtml::textField('email', $emailvalue, array('placeholder'=>'Введите email',
                                                            'id' => 'email',
                                                            'class' => 'inputField',
+                                                           'readonly' => !$model->isNewRecord,
                                                            'ajax' => array(
                                                                         'type'=>'POST', //request type
                                                                         'url'=>$this->createUrl('site/getUserID'), // url to call controller action
@@ -41,6 +48,7 @@
 	)));
 		echo $form->hiddenField($model,'user_id'); ?>
 		<?php echo $form->error($model,'user_id'); ?>
+            
 	</div>
 
 	<div class="row">
@@ -103,5 +111,13 @@
 	</div>
 
 <?php $this->endWidget(); ?>
-
+    
+    <div class="row">
+        <?php 
+        if(!$model->isNewRecord)
+        {
+            echo CHtml::link('"Удалить объявление"',"#", array("submit"=>array('delete', 'code'=>$model->editCode), 'confirm' => 'Вы уверены?'));
+        }    
+        ?>
+    </div>
 </div><!-- form -->

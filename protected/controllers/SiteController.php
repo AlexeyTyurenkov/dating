@@ -82,16 +82,7 @@ class SiteController extends Controller
         public function actionAdd()
         {
             $model=new Post;
-
-            // uncomment the following code to enable ajax-based validation
-            /*
-            if(isset($_POST['ajax']) && $_POST['ajax']==='post-addNew-form')
-            {
-                echo CActiveForm::validate($model);
-                Yii::app()->end();
-            }
-            */
-
+            
             if(isset($_POST['Post']))
             {
                 $model->attributes=$_POST['Post'];
@@ -209,5 +200,20 @@ class SiteController extends Controller
             }
             $post->activate();
             $this->render('addNew',array('model'=>$post));
-        }        
+        }     
+        
+        public function actionDelete($code) 
+        {
+            if(!$code)
+            {
+                throw new CHttpException(400,"No such post");
+            }
+            $post = Post::model()->findByAttributes(array('editCode'=>$code));
+            if(!$post)
+            {
+                    throw new CHttpException(404,"No such post");                   
+            }
+            $post->delete();
+            $this->render('deleteSuccess',array('model'=>$post));
+        } 
 }
