@@ -173,6 +173,7 @@ class SiteController extends Controller
                     }
                     else 
                     {
+                        Mailer::sendResponse($post, $response);
                         $this->render('responseSended',array('model'=>$post,'response'=>$response)); 
                     }
                 }
