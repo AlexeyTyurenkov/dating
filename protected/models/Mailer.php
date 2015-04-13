@@ -25,7 +25,7 @@ class Mailer {
     {
         $headers="From: ".$this->addressFrom."\r\nReply-To: ".$this->addressToReply;
         mail($this->addressToSend,  $this->subject, $this->message,$headers);
-        echo "Fire mail";
+
     }
     
     public static function sendActivationLink(Post $post)
@@ -39,7 +39,7 @@ class Mailer {
         $mailer->subject        = "Активація Вашого оголошення";
         $mailer->message        = "Ваше оголошення очікує на активацію перейдіть за посиланням ".Yii::app()->createAbsoluteUrl('site/activation',array('code'=>$post->activationCode));
         
-        $mailer->message        = $mailer->message ."\nДля редактирования воспользуйтесь ссылкой".Yii::app()->createAbsoluteUrl('site/edit',array('code'=>$post->editCode));
+        $mailer->message        = $mailer->message ."\n\nДля редактирования воспользуйтесь ссылкой".Yii::app()->createAbsoluteUrl('site/edit',array('code'=>$post->editCode));
         
         $mailer->sendmail();
     }
@@ -53,7 +53,9 @@ class Mailer {
         $mailer->addressFrom    = "no-reply@dating.itatests.com";
         $mailer->nameFrom       = "Сервис простых знакомств";
         $mailer->subject        = "Пользователь ".$response->username." ответил на Ваше сообщение";
-        $mailer->message        = $response->message;
+        $mailer->message        = "Пользователь ".$response->username." ответил на Ваше сообщение\n\n";
+        $mailer->message        = $mailer->message.$response->message;
+        $mailer->message        = $mailer->message."Вы можете ответить ему по адресу ".$response->senderemail." , либо нажав кнопку ответить\n\n";
         $mailer->message        = $mailer->message ."\n\n Адрес Вашего объявления ".Yii::app()->createAbsoluteUrl('site/show',array('post_id'=>$post->id));
         $mailer->message        = $mailer->message ."\n\nДля редактирования воспользуйтесь ссылкой".Yii::app()->createAbsoluteUrl('site/edit',array('code'=>$post->editCode));
         
