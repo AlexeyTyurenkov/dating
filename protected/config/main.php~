@@ -88,4 +88,11 @@ return array(
 	),
 );
 
+$localConfig = array();
 
+$localConfigFile = dirname(__FILE__) . '/database-local.php';
+if (file_exists($localConfigFile)) {
+        $localConfig = require_once($localConfigFile);
+}
+
+return CMap::mergeArray($config, $localConfig);
