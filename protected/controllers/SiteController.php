@@ -259,26 +259,6 @@ class SiteController extends Controller
 	}
         
         
-        public function accessRules()
-        {
-            return array(
-                array('allow',
-                    'actions'=>array('readlog'),
-                    'users'  =>array('nata')
-                ),
-                array('deny',
-                    'actions'=>array('readlog'),
-                    'users' => array('*')),
-            );
-        }
-        public function actionReadlog()
-        {
-            $dataProvider=new CActiveDataProvider('Post',array(
-                'pagination'=>array(
-                        'pageSize'=>100,
-                    ),
-                )
-               );
-            $this->render('adminposts',array('dataProvider'=>$dataProvider));
-        }
+
+
 }

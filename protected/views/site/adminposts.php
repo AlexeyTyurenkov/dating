@@ -21,6 +21,11 @@ $this->widget('zii.widgets.grid.CGridView', array(
         array('name'=>'Дата создания',
               'value'=>'$data->create_date',
               'htmlOptions'=>array('style'=>'width: 100px')
+            ),
+        array('name'=>'Возраст',
+            'value'=>'$data->age'
+            ),
+        array('name'=>'Категория',
             )
     )
 ));
