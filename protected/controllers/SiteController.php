@@ -28,6 +28,14 @@ class SiteController extends Controller
 		);
 	}
 
+        public function filters()
+        {
+            return array(
+                'accessControl',
+            );
+        }
+      
+
 	/**
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
@@ -217,4 +225,60 @@ class SiteController extends Controller
             $post->delete();
             $this->render('deleteSuccess',array('model'=>$post));
         } 
+        
+        	/**
+	 * Displays the login page
+	 */
+	public function actionLogin()
+	{
+		$model=new LoginForm;
+
+		// if it is ajax validation request
+		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
+		{
+			echo CActiveForm::validate($model);
+			Yii::app()->end();
+		}
+
+		// collect user input data
+		if(isset($_POST['LoginForm']))
+		{
+			$model->attributes=$_POST['LoginForm'];
+			// validate user input and redirect to the previous page if valid
+			if($model->validate() && $model->login())
+				$this->redirect(Yii::app()->user->returnUrl);
+		}
+		// display the login form
+		$this->render('login',array('model'=>$model));
+	}
+        
+        public function actionLogout()
+	{
+		Yii::app()->user->logout();
+		$this->redirect(Yii::app()->homeUrl);
+	}
+        
+        
+        public function accessRules()
+        {
+            return array(
+                array('allow',
+                    'actions'=>array('readlog'),
+                    'users'  =>array('nata')
+                ),
+                array('deny',
+                    'actions'=>array('readlog'),
+                    'users' => array('*')),
+            );
+        }
+        public function actionReadlog()
+        {
+            $dataProvider=new CActiveDataProvider('Post',array(
+                'pagination'=>array(
+                        'pageSize'=>100,
+                    ),
+                )
+               );
+            $this->render('adminposts',array('dataProvider'=>$dataProvider));
+        }
 }
