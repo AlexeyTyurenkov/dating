@@ -1,8 +1,6 @@
-<div style="text-align: center; width:100%; margin-bottom: 5px;">
-    <?php echo CHtml::link("Добавить объявление", array('add'));?>
-    
-</div>
+<?php $this->renderPartial('_header', array('header'=>"Поиск")); ?>
 
+<?php //echo CHtml::link("Добавить объявление", array('add'));?>
 <?php
     $this->renderPartial("_upperFilter", array(
                     'cityPreselected'     => $cityPreselected,
@@ -11,14 +9,19 @@
                     'minAgePreselected'   => $minAgeSelected,
                     'maxAgePreselected'   => $maxAgeSelected));
 ?>
-
+<div class="loadPosts"></div>
 <div class="counterfield">
     
 </div>
 
-<?php 
-
-    $this->renderPartial("_fullList", array(
+<?php
+    /*$this->renderPartial("_fullList", array(
         'dataProvider' => $dataProvider
     ));
+    */
 ?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".b_search").addClass("b_search_active");
+    });
+</script>

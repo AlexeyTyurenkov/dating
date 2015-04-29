@@ -111,16 +111,18 @@ class Post extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'user_id' => 'Пользователь',
+			'user_id' => 'Ваша почта',
 			'create_date' => 'Дата создания',
 			'city_id' => 'Город',
-			'category_id' => 'Категория',
-			'target_id' => 'Цель',
+			'category_id' => 'Цель',
+			'target_id' => 'Кто кого ищет',
 			'header' => 'Заголовок',
-			'text' => 'ТЕкст',
+			'text' => 'Ваше сообщение',
 			'active' => 'Активно',
 			'abused' => 'Есть жалобы',
-			'age' => 'Возраст',
+			'age' => 'Ваш возраст',
+			'verifyCode' => 'Введите символы с картинки',
+			'header' => 'Заголовок',
 		);
 	}
 
@@ -233,9 +235,9 @@ class Post extends CActiveRecord
         public static function getNextMessages($city,$category,$target,$minAge,$maxAge,$offset,$limit)
         {
             $allPosts = Post::model()->filterCity($city)->filterCategory($category)->filterTarget($target)->filterAge($minAge,$maxAge)->pagination($offset,$limit)->orderByDate()->findAll();
-            return $allPosts;
+						return $allPosts;
         }
-        
+				
         public static function getDataProvider($city,$category,$target,$minAge,$maxAge,$pagesSize)
         {
            

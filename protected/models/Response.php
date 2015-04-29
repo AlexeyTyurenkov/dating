@@ -36,7 +36,9 @@ class Response extends CFormModel{
     {
         $names['username'] = "Ваше имя";
         $names['senderemail'] = "Ваша почта";
-        $names['message'] = "Сообщение";
+        $names['message'] = "Ваше сообщение";
+        $names['verifyCode'] = "Введите символы с картинки";
+
         return array_merge(parent::attributeLabels(), $names);
     }
 

@@ -29,7 +29,7 @@ class Target extends CActiveRecord
 			array('name', 'length', 'max'=>100),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name', 'safe', 'on'=>'search'),
+			array('id, name, ext1, ext2', 'safe', 'on'=>'search'),
 		);
 	}
 
