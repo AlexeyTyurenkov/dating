@@ -442,7 +442,7 @@ select, input, textarea {
       font-size: 12px;
       padding: 7px 0px 0px 34px; } }
 
-.categoryList .categorySelect:nth-child(2) {
+.categoryList .categorySelect:nth-child(even) {
   margin-right: 0%; }
 
 .categorySelect.categorySelectActive {
