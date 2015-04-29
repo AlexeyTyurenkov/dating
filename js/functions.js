@@ -1,21 +1,21 @@
 $(document).ready(function(){
-  $('.categorySelect').live('click', function(){
+  $('.categorySelect').on('click', function(){
     $('.categorySelect').removeClass('categorySelectActive');
     $(this).addClass('categorySelectActive');
     $('#category').val($(this).attr('category_id'));
   });
   
-  $('.targetList .girl').live('click', function(){
+  $('.targetList .girl').on('click', function(){
     $(this).prev('.boy').removeClass('boySelectActive');
     $(this).addClass('girlSelectActive');
   });
   
-  $('.targetList .boy').live('click', function(){
+  $('.targetList .boy').on('click', function(){
     $(this).next('.girl').removeClass('girlSelectActive');
     $(this).addClass('boySelectActive');
   });
   
-  $("#logo").live('click', function(){
+  $("#logo").on('click', function(){
     history.back(1);
   });
   

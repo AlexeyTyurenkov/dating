@@ -81,7 +81,7 @@ Yii::app()->clientScript->registerScript('search',
     
     $(document).ready(function(){
       $('.b_search').addClass('b_search_active');
-      $('.smallpost[link]').live('click', function(){
+      $('.smallpost[link]').on('click', function(){
         window.location = $(this).attr('link');
       });
       
@@ -89,7 +89,7 @@ Yii::app()->clientScript->registerScript('search',
       var offset = 0;
       var loadingFlag = false;
       
-      $('#sendForm').live('click', function(){
+      $('#sendForm').on('click', function(){
         $('.foriframe').hide();
         $.ajax({
           type: 'post',
@@ -101,7 +101,7 @@ Yii::app()->clientScript->registerScript('search',
         });
       });
       
-      $('.loadPage').live('click', function(){
+      $('.loadPage').on('click', function(){
         // защита от повторных нажатий
         if (!loadingFlag)	{
           offset += 6;
@@ -146,7 +146,7 @@ Yii::app()->clientScript->registerScript('search',
         }
       });
       
-      $('input#minAge, input#maxAge').live('change keyup input click', function(){
+      $('input#minAge, input#maxAge').on('change keyup input click', function(){
         if (this.value.match(/[^0-9]/g)) {
           this.value = this.value.replace(/[^0-9]/g, '');
         }
