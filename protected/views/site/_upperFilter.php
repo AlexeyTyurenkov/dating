@@ -81,7 +81,7 @@ Yii::app()->clientScript->registerScript('search',
     
     $(document).ready(function(){
       $('.b_search').addClass('b_search_active');
-      $('.smallpost[link]').on('click', function(){
+      $(document).on('click', '.smallpost[link]', function(){
         window.location = $(this).attr('link');
       });
       
