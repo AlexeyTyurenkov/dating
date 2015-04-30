@@ -101,7 +101,7 @@ Yii::app()->clientScript->registerScript('search',
         });
       });
       
-      $('.loadPage').on('click', function(){
+      $(document).on('click', '.loadPage', function(){
         // защита от повторных нажатий
         if (!loadingFlag)	{
           offset += 6;

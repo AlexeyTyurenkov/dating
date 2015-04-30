@@ -11,7 +11,7 @@ $this->widget('zii.widgets.CListView', array(
 ?>
 <script type="text/javascript">
 	$(document).ready(function(){
-    if($('.pageEnd').html()*1 == 1){
+    if($('.pageEnd').html()*1 == 1 || $('.smallpost').length == 0){
       $('.loadPage').hide();
     }
   });

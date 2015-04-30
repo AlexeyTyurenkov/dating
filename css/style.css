@@ -692,4 +692,8 @@ select, input, textarea {
   position: relative;
   top: -41px; }
 
+.empty {
+  margin: 10px 0px 0px 0px;
+  display: block; }
+
 /*# sourceMappingURL=style.css.map */
