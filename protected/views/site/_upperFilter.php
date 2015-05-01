@@ -21,15 +21,15 @@
     <div class="targetList">
       <div class="listColumn">
         <p>Выберите Ваш пол:</p>
-        <div class="boy"></div>
-        <div class="girl"></div>
+        <div class="boy" type=1></div>
+        <div class="girl" type=2></div>
       </div>
       <div class="listColumn">
         <p>Кого Вы ищете:</p>
-        <div class="boy"></div>
-        <div class="girl"></div>
+        <div class="boy" type=1></div>
+        <div class="girl" type=2></div>
       </div>
-      <?php echo CHtml::hiddenField('target'); ?>
+      <?php echo CHtml::hiddenField('target', 0); ?>
       <?php
         /*echo CHtml::dropDownList('target', $targetPreselected, CHtml::listData(Target::model()->findAll(), 'id', 'name'),
           array('empty'=>"Все категории", 'class' => "bigSelector")); */ ?>
@@ -57,55 +57,59 @@
 <?php
 Yii::app()->clientScript->registerScript('search',
     "
-    /*var ajaxUpdateTimeout;
+    var ajaxUpdateTimeout;
     var ajaxRequest;
-    var updateList = function(){
-        ajaxRequest = $(this).serialize();
-        clearTimeout(ajaxUpdateTimeout);
-        ajaxUpdateTimeout = setTimeout(function () {
-            $.fn.yiiListView.update(
-            // this is the id of the CListView
-                'PostsList',
-                {data: ajaxRequest}
-            )
-        },
-        // this is the delay
-        300);
+    function updateList(form){
+      ajaxRequest = form.serialize();
+      clearTimeout(ajaxUpdateTimeout);
+      ajaxUpdateTimeout = setTimeout(function () {
+          $.fn.yiiListView.update(
+          // this is the id of the CListView
+            'PostsList',
+            {
+              data: ajaxRequest,
+              complete: function(){
+                if($('.pageEnd').html()*1 == 1 || $('.smallpost').length == 0){
+                  $('.loadPage').hide();
+                }
+              }
+            }
+          )
+      },
+      // this is the delay
+      300);
     };
-    $('#minAge').keyup(updateList);
-    $('#maxAge').keyup(updateList);    
-    $('#target').change(updateList);
-    $('#city').change(updateList);
-    $('#category').change(updateList);
-    */
+    
     
     $(document).ready(function(){
-      $('.b_search').addClass('b_search_active');
       $(document).on('click', '.smallpost[link]', function(){
         window.location = $(this).attr('link');
       });
       
-      var page = 1;
+      $('#minAge').keyup(function(){updateList($('.foriframe form'))});
+      $('#maxAge').keyup(function(){updateList($('.foriframe form'))});    
+      $('#city').change(function(){updateList($('.foriframe form'))});
+      
       var offset = 0;
       var loadingFlag = false;
       
-      $('#sendForm').on('click', function(){
-        $('.foriframe').hide();
-        $.ajax({
+      $('#sendForm, .categorySelect').on('click', function(){
+        updateList($('.foriframe form'));
+        //$('.foriframe').hide();
+        /*$.ajax({
           type: 'post',
           url: window.location.href,
           data: $('.foriframe form').serialize(),
           success: function(data){
             $('.loadPosts').append(data);
           }
-        });
+        });*/
       });
       
       $(document).on('click', '.loadPage', function(){
         // защита от повторных нажатий
         if (!loadingFlag)	{
-          offset += 6;
-          //$('#offset').val($('#offset').val()*1+6);
+          offset += 50;
           // выставляем блокировку
           loadingFlag = true;
           $.ajax({
@@ -116,8 +120,7 @@ Yii::app()->clientScript->registerScript('search',
             success: function(data){
               // снимаем блокировку
               loadingFlag = false;
-              //offset+=6;
-              page+=1;
+              page = $('.pageCurrent').html()*1+1;
               
               if(page == $('.pageEnd').html()*1){
                 $('.loadPage').hide();
@@ -139,6 +142,7 @@ Yii::app()->clientScript->registerScript('search',
         stop: function(event, ui) {
           $('input#minAge').val($('#slider').slider('values',0));
           $('input#maxAge').val($('#slider').slider('values',1));
+          updateList($('.foriframe form'));
         },
         slide: function(event, ui){
           $('input#minAge').val($('#slider').slider('values',0));

@@ -9,19 +9,21 @@
                     'minAgePreselected'   => $minAgeSelected,
                     'maxAgePreselected'   => $maxAgeSelected));
 ?>
-<div class="loadPosts"></div>
-<div class="counterfield">
-    
-</div>
+<div class="counterfield"></div>
 
 <?php
-    /*$this->renderPartial("_fullList", array(
+    $this->renderPartial("_fullList", array(
         'dataProvider' => $dataProvider
     ));
-    */
 ?>
+<div class="loadPosts"></div>
+
 <script type="text/javascript">
     $(document).ready(function(){
-        $(".b_search").addClass("b_search_active");
+        $('.b_search').on('click', function(e){
+            e.preventDefault();
+            $('.foriframe').show();
+            $(".b_search").addClass("b_search_active");
+        });
     });
 </script>

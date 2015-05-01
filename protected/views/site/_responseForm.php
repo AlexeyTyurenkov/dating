@@ -25,8 +25,8 @@
 		<?php echo $form->error($model,'senderemail'); ?>
 	</div>
 
-	<div class="row smallInput">
-		<?php 
+	<!--<div class="row smallInput">-->
+		<?php /*
 		if (CCaptcha::checkRequirements() && Yii::app()->user->isGuest)
 		{        
 			echo $form->labelEx($model,'verifyCode');
@@ -34,9 +34,9 @@
 			$this->widget('ExtCaptcha');
 			echo '<div class="clearfix"></div>';
 			echo $form->error($model,'verifyCode');
-		}
+		}*/
 		?>
-	</div>
+	<!--</div>-->
 	
 	<div class="row">
 		<?php echo $form->labelEx($model,'message'); ?>

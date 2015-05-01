@@ -48,23 +48,21 @@ class SiteController extends Controller
             $minAge   = Yii::app()->request->getParam('minAge',18);
             $maxAge   = Yii::app()->request->getParam('maxAge',99);
             $offset   = Yii::app()->request->getParam('offset',0);
-            $limit    = Yii::app()->request->getParam('limit',6);
-            $postsDataprovider = Post::getDataProvider($city, $category, $target, $minAge, $maxAge, 6);
+            $limit    = Yii::app()->request->getParam('limit',50);
+            $postsDataprovider = Post::getDataProvider($city, $category, $target, $minAge, $maxAge, $limit);
 						
 						if(Yii::app()->request->isAjaxRequest && $offset != 0){
 								$postsDataprovider = Post::getNextMessages($city, $category, $target, $minAge, $maxAge, $offset, $limit);
-								$i=0;
 								foreach($postsDataprovider as $data){
-										$this->renderPartial('_smallPost', array('data'=> $data, 'index'=>$i));
-										$i++;
+										$this->renderPartial('_smallPost', array('data'=> $data));
 								}
 								Yii::app()->end();
 						}
-            else if(/*Yii::app()->request->isAjaxRequest*/ !empty($_POST)){
-                $this->renderPartial('_fullList', array('dataProvider'=> $postsDataprovider));
+            //else if(/*Yii::app()->request->isAjaxRequest*/ !empty($_POST)){
+                //$this->renderPartial('_fullList', array('dataProvider'=> $postsDataprovider));
                 // Завершаем приложение
                 //Yii::app()->end();
-            }
+            //}
             else 
             {
             // если запрос не асинхронный, отдаём форму полностью

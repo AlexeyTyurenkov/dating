@@ -5,7 +5,7 @@
     <div class="column">
         <div class="full-post">
             <p class="title">Вы пишете:</p>
-            <?php $this->renderPartial('_smallPost', array("data"=>$model)); ?>
+            <?php $this->renderPartial('_smallPost', array("data"=>$model, 'showText'=>1)); ?>
             <div class="clearfix"></div>
         </div>
     </div>

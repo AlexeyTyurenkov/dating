@@ -25,11 +25,13 @@ html, html body {
 	margin: 0px auto 20px auto;
 	padding: 0px 0px;
 	max-width: 768px;
+	width: 100%;
 	@media (max-width: 1079px) {
 		max-width: 768px;
 	}
 	@media (max-width: 767px) {
-		max-width: 320px;
+		/*max-width: 320px;*/
+		max-width: 100%;
 	}
 }
 
@@ -42,17 +44,20 @@ html, html body {
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
 }
 
 .formActiveElement{
 	-moz-box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.4);
-  -webkit-box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.4);        
+  -webkit-box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.4);
+	-o-box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.4); 
   box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.4);
 }
 
 .formElement{
   -moz-box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.75);        
+  -webkit-box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.75);
+	-o-box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.75);
   box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.75);
 }
 
@@ -69,6 +74,7 @@ html, html body {
 	-webkit-border-radius: $radius;
 	-moz-border-radius: $radius;
 	-ms-border-radius: $radius;
+	-o-border-radius: $radius;
 	border-radius: $radius;
 }
 
@@ -83,6 +89,7 @@ html, html body {
 .foriframe{
   @extend .padding;
 	padding-top: 3px;
+	display: none;
 }
 
 .column{
@@ -133,7 +140,7 @@ html, html body {
 #logo p{
   color: #fff;
   font-size: 24px;
-  line-height: 42px;
+	padding-top: 10px;
   float: left;
 }
 
@@ -191,7 +198,8 @@ select, input, textarea{
   width: 100%;
   height: 36px;
   font-size: 16px;
-  line-height: 36px;
+  line-height: 16px;
+	padding-top: 5px;
   color: #616161;
   background-color: #f1f1f1;
 	border: none;
@@ -204,7 +212,12 @@ select, input, textarea{
   background-repeat: no-repeat;
   -webkit-appearance: none;
   -moz-appearance: none;
+	-o-appearance: none;
   appearance: none;
+}
+
+textarea{
+	padding-top: 10px;
 }
 
 .foriframe input{
@@ -238,7 +251,7 @@ select, input, textarea{
   width: 48%;
   height: 39px;
   color: #fff;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 14px;
   background-size: auto 17px;
   background-repeat: no-repeat;
@@ -249,8 +262,10 @@ select, input, textarea{
 	@extend .formElement;
 	@extend .boxSizing;
 	@media (max-width: 767px) {
-		font-size: 12px;
 		padding: 7px 0px 0px 34px;
+	}
+	@media (min-width: 321px) {
+		font-size: 14px;
 	}
 }
 
@@ -356,25 +371,22 @@ select, input, textarea{
 }
 
 .smallpost{
-	padding: 10px 0px 0px 2%;
+	padding: 10px 8% 0px 2%;
 	cursor: pointer;
-	overflow: hidden;
-	width: 48%;
-	float: left;
-	border-bottom: 1px solid #9a0000;
+	width: 90%;
+	@include background(url('../images/arrow.png'), no-repeat, 97% 50%, auto 15px, transperent); 
+	/*border-bottom: 1px solid #9a0000;
 	@media (max-width: 767px) {
-		@include background(url('../images/arrow.png'), no-repeat, 97% 50%, auto 15px, transperent); 
-		width: 98%;
-		float: none;
 		border: none;
-	}
+	}*/
 }
 
 .smallpost:nth-of-type(even) {
-	background-color: #fff;
+	background-color: #f2f2f2;
+	/*background-color: #fff;
 	@media (max-width: 767px) {
 		background-color: #f2f2f2;
-	}
+	}*/
 }
 
 .smallpostcolumn{
@@ -382,50 +394,66 @@ select, input, textarea{
 	vertical-align: top;
 }
 
-.smallpostcolumn:last-child{
-	vertical-align: bottom;
-}
+/*.smallpostcolumn:last-child{*/
+/*	vertical-align: bottom;*/
+/*}*/
 
 .target1{
 	width: 90%;
+	@media (min-width: 321px) {
+		width: 70%;
+	}
 }
 
 .target2{
-	width: 70%;
+	width: 100%;
 	margin-bottom: 5px;
+	@media (min-width: 321px) {
+		width: 50%;
+	}
 }
 
 .smallpostcolumn.big{
-	width: 75%;
+	width: 86%;
 }
 
 .smallpostcolumn.small{
-	width: 10%;
+	width: 12%;
 }
 
 .smallpostline{
 	margin: 0px 0px 5px 0px;
 }
 
-.smallpostline span{
+/*.smallpostline span{
 	font-size: 11px;
 	width: 15%;
 	display: inline-block;
-}
+}*/
 
 .smallpostline p{
 	font-size: 14px;
-	width: 85%;
+	height: 14px;
 	display: inline-block;
+	@media (min-width: 321px) {
+		font-size: 18px;
+		height: 20px;
+	}
 }
 
 .smallpostline.dt{
 	font-size: 11px;
 	margin-bottom: 8px;
+	@media (min-width: 321px) {
+		font-size: 14px;
+	}
 }
 
 .smallpostline .city{
 	font-size: 16px;
+	@media (min-width: 321px) {
+		font-size: 20px;
+	}
 }
 
 .smallpostline .target{
@@ -437,18 +465,37 @@ select, input, textarea{
   background-size: auto 14px;
 	background-position: 0% 50%;
 	background-repeat: no-repeat;
-	width: 75%;
-	padding-left: 10%;
+	padding-left: 22px;
+	@media (min-width: 321px) {
+		background-size: auto 20px;
+		padding-left: 32px;
+	}
+}
+
+.smallpostcolumn.child{
+	width: 86%;
+	display: inline-block;
+}
+
+.smallpostcolumn .smallpostimg{
+	width: 12%;
+	display: inline-block;
+	vertical-align: bottom;
+}
+
+.smallpostline .header1, .smallpostline .header2{
+	font-size: 18px;
+	@media (min-width: 321px) {
+		font-size: 24px;
+	}
 }
 
 .smallpostline .header1{
 	color: #007aff;
-	font-size: 18px;
 }
 
 .smallpostline .header2{
 	color: #bb0036;
-	font-size: 18px;
 }
 
 .full-post .smallpost{
@@ -456,6 +503,7 @@ select, input, textarea{
 	background-color: #c8c7cc;
 	cursor: default;
 	width: 98%;
+	padding-right: 0%;
 	border: none;
 }
 
