@@ -26,7 +26,7 @@ class Response extends CFormModel{
             array('username, senderemail, message, post_id', 'required',  'message'=>'Поле {attribute} должно быть заполенено'),
             array('post_id','checkPost'),
             array('senderemail','email', 'message' => 'Поле {attribute} должно быть Е-mail'),
-            //array('verifyCode','captcha','allowEmpty'=>!Yii::app()->user->isGuest || !CCaptcha::checkRequirements()),
+            array('verifyCode','captcha','allowEmpty'=>!Yii::app()->user->isGuest || !CCaptcha::checkRequirements()),
         );
     }
 
