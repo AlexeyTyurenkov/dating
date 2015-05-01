@@ -22,8 +22,8 @@
     $(document).ready(function(){
         $('.b_search').on('click', function(e){
             e.preventDefault();
-            $('.foriframe').show();
-            $(".b_search").addClass("b_search_active");
+            $('.foriframe').toggle();
+            $(".b_search").toggleClass("b_search_active");
         });
     });
 </script>

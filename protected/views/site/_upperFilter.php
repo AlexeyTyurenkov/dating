@@ -106,6 +106,10 @@ Yii::app()->clientScript->registerScript('search',
         });*/
       });
       
+      $('.listColumn div').on('click', function(){
+        
+      });
+      
       $(document).on('click', '.loadPage', function(){
         // защита от повторных нажатий
         if (!loadingFlag)	{
