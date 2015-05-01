@@ -7,4 +7,5 @@ protected/data/*.db
 themes/classic/views/
 /nbproject/private/
 *.komodo*
-
+.sass-cache/*
+css/.sass-cache/*
