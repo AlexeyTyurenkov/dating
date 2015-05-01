@@ -331,28 +331,30 @@ textarea{
   background-size: auto 95%;
 }
 
-.listColumn .boySelectActive{
+.listColumn .SelectActive{
+  @extend .formActiveElement;
+}
+
+.listColumn .SelectActive.boy{
   background-color: #0044aa;
-  @extend .formActiveElement;
 }
-
-.listColumn .boySelectActive:before{
-  background-color: rgba(0, 68, 170, 0.3);
-	@include border-radius(9px);
-	@extend .formActiveElement;
-	@extend .contentBefore;
-}
-
-.listColumn .girlSelectActive{
+  
+.listColumn .SelectActive.girl{
   background-color: #ff9500;
-  @extend .formActiveElement;
 }
 
-.listColumn .girlSelectActive:before{
-  background-color: rgba(255, 149, 0, 0.3);
+.listColumn .SelectActive:before{
 	@include border-radius(9px);
 	@extend .formActiveElement;
 	@extend .contentBefore;
+}
+
+.listColumn .SelectActive.boy:before{
+  background-color: rgba(0, 68, 170, 0.3);
+}
+
+.listColumn .SelectActive.girl:before{
+  background-color: rgba(255, 149, 0, 0.3);
 }
 
 #sendForm{

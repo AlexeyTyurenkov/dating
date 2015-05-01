@@ -84,14 +84,15 @@
 		<div class="targetList">
 			<div class="listColumn">
 				<p>Выберите Ваш пол:</p>
-				<div class="boy"></div>
-				<div class="girl"></div>
+				<div class="boy targetDiv" type=1></div>
+				<div class="girl targetDiv" type=2></div>
 			</div>
 			<div class="listColumn">
 				<p>Кого Вы ищете:</p>
-				<div class="boy"></div>
-				<div class="girl"></div>
+				<div class="boy targetDiv" type=1></div>
+				<div class="girl targetDiv" type=2></div>
 			</div>
+	    <?php echo $form->hiddenField($model,'target_id', Target::getTargetList()); ?>
 		</div>
 		<?php 
 			//echo $form->dropDownList($model, 'target_id', CHtml::listData(Target::model()->findAll(), 'id', 'name'), array('empty'=>"Выберите категорию...",'class'=>'selectFieldInline')); 
@@ -192,5 +193,14 @@
       var value1=$('input#Post_age').val();
       $('#slider').slider('value',value1);	
     });
+		
+		$('.targetDiv').on('click', function(){
+			$(this).parents('.listColumn').find('.targetDiv').removeClass('SelectActive');
+			$(this).addClass('SelectActive');
+			if($('.targetDiv.SelectActive[type]').length==2){
+				var target = $('#Post_target_id').attr('attr_'+$('.targetDiv.SelectActive').eq(0).attr('type')+$('.targetDiv.SelectActive').eq(1).attr('type'));
+				$('#Post_target_id').val(target);
+			}
+		});
 	});
 </script>

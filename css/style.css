@@ -264,7 +264,7 @@ html, html body {
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box; }
 
-.formActiveElement, select, input, textarea, .categorySelect.categorySelectActive, .categorySelect.categorySelectActive:before, .listColumn .boySelectActive, .listColumn .boySelectActive:before, .listColumn .girlSelectActive, .listColumn .girlSelectActive:before {
+.formActiveElement, select, input, textarea, .categorySelect.categorySelectActive, .categorySelect.categorySelectActive:before, .listColumn .SelectActive, .listColumn .SelectActive:before {
   -moz-box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.4);
   -o-box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.4);
@@ -276,7 +276,7 @@ html, html body {
   -o-box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.75);
   box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.75); }
 
-.contentBefore, .listColumn .boySelectActive:before, .listColumn .girlSelectActive:before {
+.contentBefore, .listColumn .SelectActive:before {
   content: "";
   position: absolute;
   top: 0px;
@@ -515,27 +515,24 @@ textarea {
   background-image: url("../images/girl.png");
   background-size: auto 95%; }
 
-.listColumn .boySelectActive {
+.listColumn .SelectActive.boy {
   background-color: #0044aa; }
 
-.listColumn .boySelectActive:before {
-  background-color: rgba(0, 68, 170, 0.3);
-  -webkit-border-radius: 9px;
-  -moz-border-radius: 9px;
-  -ms-border-radius: 9px;
-  -o-border-radius: 9px;
-  border-radius: 9px; }
-
-.listColumn .girlSelectActive {
+.listColumn .SelectActive.girl {
   background-color: #ff9500; }
 
-.listColumn .girlSelectActive:before {
-  background-color: rgba(255, 149, 0, 0.3);
+.listColumn .SelectActive:before {
   -webkit-border-radius: 9px;
   -moz-border-radius: 9px;
   -ms-border-radius: 9px;
   -o-border-radius: 9px;
   border-radius: 9px; }
+
+.listColumn .SelectActive.boy:before {
+  background-color: rgba(0, 68, 170, 0.3); }
+
+.listColumn .SelectActive.girl:before {
+  background-color: rgba(255, 149, 0, 0.3); }
 
 #sendForm {
   background-color: #a60075;

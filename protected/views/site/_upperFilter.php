@@ -95,18 +95,11 @@ Yii::app()->clientScript->registerScript('search',
       
       $('#sendForm, .categorySelect').on('click', function(){
         updateList($('.foriframe form'));
-        //$('.foriframe').hide();
-        /*$.ajax({
-          type: 'post',
-          url: window.location.href,
-          data: $('.foriframe form').serialize(),
-          success: function(data){
-            $('.loadPosts').append(data);
-          }
-        });*/
       });
       
       $('.targetDiv').on('click', function(){
+        $(this).parents('.listColumn').find('.targetDiv').removeClass('SelectActive');
+        $(this).addClass('SelectActive');
         if($('.targetDiv.SelectActive[type]').length==2){
           var target = $('#target').attr('attr_'+$('.targetDiv.SelectActive').eq(0).attr('type')+$('.targetDiv.SelectActive').eq(1).attr('type'));
           $('#target').val(target);
