@@ -29,7 +29,7 @@ class Target extends CActiveRecord
 			array('name', 'length', 'max'=>100),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, ext1, ext2', 'safe', 'on'=>'search'),
+			array('id, name, img1, img2', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -91,15 +91,28 @@ class Target extends CActiveRecord
 	{
 		return parent::model($className);
 	}
-        public static function getAllTargetsAsKeyValue() 
-        {
-            $categoriesArray = Target::model()->findAll();
-            if(!$categoriesArray) return array();
-
-            foreach($categoriesArray as $city)
-            {
-                $result[$city["id"]] = $city["name"];
-            }
-            return $result;   
-        }
+	
+	public static function getAllTargetsAsKeyValue() 
+	{
+		$categoriesArray = Target::model()->findAll();
+		if(!$categoriesArray) return array();
+		
+		foreach($categoriesArray as $city)
+		{
+			$result[$city["id"]] = $city["name"];
+		}
+		return $result;   
+	}
+	
+	public static function getTargetList() 
+	{
+		$categoriesArray = Target::model()->findAll();
+		if(!$categoriesArray) return array();
+		
+		foreach($categoriesArray as $city)
+		{
+			$result["attr_".$city["img1"].$city["img2"]] = $city["id"];
+		}
+		return $result;   
+	}
 }

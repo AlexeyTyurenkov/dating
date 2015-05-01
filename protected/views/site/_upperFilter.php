@@ -21,15 +21,15 @@
     <div class="targetList">
       <div class="listColumn">
         <p>Выберите Ваш пол:</p>
-        <div class="boy" type=1></div>
-        <div class="girl" type=2></div>
+        <div class="boy targetDiv" type=1></div>
+        <div class="girl targetDiv" type=2></div>
       </div>
       <div class="listColumn">
         <p>Кого Вы ищете:</p>
-        <div class="boy" type=1></div>
-        <div class="girl" type=2></div>
+        <div class="boy targetDiv" type=1></div>
+        <div class="girl targetDiv" type=2></div>
       </div>
-      <?php echo CHtml::hiddenField('target', 0); ?>
+      <?php echo CHtml::hiddenField('target', 0, Target::getTargetList()); ?>
       <?php
         /*echo CHtml::dropDownList('target', $targetPreselected, CHtml::listData(Target::model()->findAll(), 'id', 'name'),
           array('empty'=>"Все категории", 'class' => "bigSelector")); */ ?>
@@ -106,8 +106,12 @@ Yii::app()->clientScript->registerScript('search',
         });*/
       });
       
-      $('.listColumn div').on('click', function(){
-        
+      $('.targetDiv').on('click', function(){
+        if($('.targetDiv.SelectActive[type]').length==2){
+          var target = $('#target').attr('attr_'+$('.targetDiv.SelectActive').eq(0).attr('type')+$('.targetDiv.SelectActive').eq(1).attr('type'));
+          $('#target').val(target);
+          updateList($('.foriframe form'));
+        }
       });
       
       $(document).on('click', '.loadPage', function(){
