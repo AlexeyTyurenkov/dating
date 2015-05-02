@@ -6,14 +6,14 @@
   font-family: "MyriadProRegular";
   src: url("../fonts/MyriadProRegular.eot");
   src: url("../fonts/MyriadProRegular.eot?#iefix")format("embedded-opentype"),
-  url("../fonts/MyriadProRegular.woff") format("woff"),
-  url("../fonts/MyriadProRegular.ttf") format("truetype");
+			 url("../fonts/MyriadProRegular.woff") format("woff"),
+			 url("../fonts/MyriadProRegular.ttf") format("truetype");
   font-style: normal;
   font-weight: normal;
 }
 
 *{
-  font-family: "MyriadProRegular";
+  font-family: "MyriadProRegular", Arial;
   color: #3b3b3b;
 }
 
@@ -41,10 +41,10 @@ html, html body {
 }
 
 .boxSizing{
-	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-o-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .formActiveElement{
@@ -90,6 +90,7 @@ html, html body {
   @extend .padding;
 	padding-top: 3px;
 	display: none;
+	margin-bottom: 20px;
 }
 
 .column{
@@ -121,11 +122,12 @@ html, html body {
   @extend .padding;
   background-color: #bb0036;
   height: 42px;
+	overflow: hidden;
 }
 
 #logo{
   cursor: pointer;
-	@include background(url('../images/arrow-left.png'), no-repeat, 0px 50%, auto 12px, transperent); 
+	@include background(url('../images/arrow-left.png'), no-repeat, 0px 50%, auto auto, transperent); 
   padding-left: 22px;
   float: left;
   overflow: hidden;
@@ -161,7 +163,6 @@ html, html body {
   display: inline-block;
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  background-size: auto 16px;
   width: 26px;
   height: 42px;
   cursor: pointer;
@@ -190,7 +191,6 @@ html, html body {
 #buttons .separator{
   background-image: url('../images/line-active.png');
   width: 1px;
-  background-size: 1px 28px;
   cursor: default;
 }
 
@@ -198,8 +198,8 @@ select, input, textarea{
   width: 100%;
   height: 36px;
   font-size: 16px;
-  line-height: 16px;
-	padding-top: 5px;
+  line-height: 30px;
+	padding: 5px 0px 0px 0px;
   color: #616161;
   background-color: #f1f1f1;
 	border: none;
@@ -245,25 +245,38 @@ textarea{
 
 .categorySelect{
   margin: 0px 4% 8px 0%;
-  padding: 7px 20px 0px 34px;
+  padding: 7px 0px 0px 0px;
 	position: relative;
   float: left;
   width: 48%;
   height: 39px;
-  color: #fff;
-  font-size: 12px;
-  line-height: 14px;
-  background-size: auto 17px;
-  background-repeat: no-repeat;
-  background-position: 8px 50%;
+  /*background-size: auto 17px;*/
+  /*background-repeat: no-repeat;*/
+  /*background-position: 8px 50%;*/
   background-color: #e53254;
   cursor: pointer;
   @include border-radius(4px); 
 	@extend .formElement;
 	@extend .boxSizing;
 	@media (max-width: 767px) {
-		padding: 7px 0px 0px 34px;
+		padding: 7px 0px 0px 0px;
 	}
+}
+
+.categorySelect img{
+	width: 20px;
+	margin-right: 8px;
+	margin-left: 8px;
+	vertical-align: middle;
+}
+
+.categorySelect p{
+	display: table-cell;
+	vertical-align: middle;
+	color: #fff;
+	padding: 0px;
+  font-size: 12px;
+  line-height: 14px;
 	@media (min-width: 321px) {
 		font-size: 14px;
 	}
@@ -321,14 +334,18 @@ textarea{
 
 .boy{
   background-color: #007aff;
-  background-image: url('../images/boy.png');
-  background-size: auto 85%;
 }
 
 .girl{
   background-color: #ff9500;
-  background-image: url('../images/girl.png');
-  background-size: auto 95%;
+}
+
+.boy, .girl{
+	text-align: right;
+}
+
+.boy img, .girl img{
+	width: 95%;	
 }
 
 .listColumn .SelectActive{
@@ -376,7 +393,7 @@ textarea{
 	padding: 10px 8% 0px 2%;
 	cursor: pointer;
 	width: 90%;
-	@include background(url('../images/arrow.png'), no-repeat, 97% 50%, auto 15px, transperent); 
+	@include background(url('../images/arrow.png'), no-repeat, 97% 50%, auto auto, transperent); 
 	/*border-bottom: 1px solid #9a0000;
 	@media (max-width: 767px) {
 		border: none;
@@ -435,11 +452,11 @@ textarea{
 
 .smallpostline p{
 	font-size: 14px;
-	height: 14px;
+	/*height: 14px;*/
 	display: inline-block;
 	@media (min-width: 321px) {
 		font-size: 18px;
-		height: 20px;
+		/*height: 20px;*/
 	}
 }
 
@@ -464,13 +481,18 @@ textarea{
 
 .smallpostline .category{
 	color: #b20ed6;
-  background-size: auto 14px;
-	background-position: 0% 50%;
-	background-repeat: no-repeat;
-	padding-left: 22px;
+	line-height: 14px;
 	@media (min-width: 321px) {
-		background-size: auto 20px;
-		padding-left: 32px;
+		line-height: 20px;
+	}
+}
+
+.smallpostline .category img{
+	float: left;
+  height: 14px;
+	margin-right: 5px;
+	@media (min-width: 321px) {
+		height: 20px;
 	}
 }
 

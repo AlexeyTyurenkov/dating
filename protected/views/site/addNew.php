@@ -70,9 +70,11 @@
 		<?php echo $form->labelEx($model,'category_id'); ?>
 		<div class="categoryList">
 			<?php foreach(Category::model()->findAll() as $category){
-				echo "<div class='categorySelect' category_id='".$category->id."' style='background-image:url(images/category/".$category->id.".png);'>".$category->name."</div>";
+				echo "<div class='categorySelect' category_id='".$category->id."'>";
+        echo "<p><img src='images/category/".$category->id.".png' alt=''></p>";
+        echo "<p>".$category->name."</p></div>";
 			}
-			echo CHtml::hiddenField('category');
+			echo $form->hiddenField($model,'category_id');
 			echo '<div class="clearfix"></div>';
 			echo $form->error($model,'category_id'); 
 			?>
@@ -84,13 +86,13 @@
 		<div class="targetList">
 			<div class="listColumn">
 				<p>Выберите Ваш пол:</p>
-				<div class="boy targetDiv" type=1></div>
-				<div class="girl targetDiv" type=2></div>
+				<div class="boy targetDiv" type=1><img src='images/target/1.png' alt=''></div>
+				<div class="girl targetDiv" type=2><img src='images/target/2.png' alt=''></div>
 			</div>
 			<div class="listColumn">
 				<p>Кого Вы ищете:</p>
-				<div class="boy targetDiv" type=1></div>
-				<div class="girl targetDiv" type=2></div>
+				<div class="boy targetDiv" type=1><img src='images/target/1.png' alt=''></div>
+				<div class="girl targetDiv" type=2><img src='images/target/2.png' alt=''></div>
 			</div>
 	    <?php echo $form->hiddenField($model,'target_id', Target::getTargetList()); ?>
 		</div>
@@ -171,8 +173,8 @@
 		$(".b_add").addClass("b_add_active");
 		
 		$('#slider').slider({
-      min: 1,
-      max: 100,
+      min: 18,
+      max: 70,
       value:  $('input#Post_age').val(),
       range: "min",
       stop: function(event, ui) {
@@ -188,11 +190,19 @@
 				this.value = this.value.replace(/[^0-9]/g, '');
 			}
 		});
-    
+		
     $('input#Post_age').change(function(){
       var value1=$('input#Post_age').val();
+			if (value1 > 70) { value1 = 70; $('input#Post_age').val(value1);}
+			if (value1 < 18) { value1 = 18; $('input#Post_age').val(value1);}
       $('#slider').slider('value',value1);	
     });
+		
+		$('.categorySelect').on('click', function(){
+			$('.categorySelect').removeClass('categorySelectActive');
+			$(this).addClass('categorySelectActive');
+			$('#Post_category_id').val($(this).attr('category_id'));
+		});
 		
 		$('.targetDiv').on('click', function(){
 			$(this).parents('.listColumn').find('.targetDiv').removeClass('SelectActive');

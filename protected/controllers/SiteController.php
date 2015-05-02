@@ -46,7 +46,7 @@ class SiteController extends Controller
             $category = Yii::app()->request->getParam('category',0);
             $target   = Yii::app()->request->getParam('target',0);
             $minAge   = Yii::app()->request->getParam('minAge',18);
-            $maxAge   = Yii::app()->request->getParam('maxAge',99);
+            $maxAge   = Yii::app()->request->getParam('maxAge',70);
             $offset   = Yii::app()->request->getParam('offset',0);
             $limit    = Yii::app()->request->getParam('limit',50);
             $postsDataprovider = Post::getDataProvider($city, $category, $target, $minAge, $maxAge, $limit);

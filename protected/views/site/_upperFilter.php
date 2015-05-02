@@ -7,7 +7,9 @@
     <p>Цель:</p>
     <div class="categoryList">
       <?php foreach(Category::model()->findAll() as $category){
-        echo "<div class='categorySelect' category_id='".$category->id."' style='background-image:url(images/category/".$category->id.".png);'>".$category->name."</div>";
+        echo "<div class='categorySelect' category_id='".$category->id."'>";
+        echo "<p><img src='images/category/".$category->id.".png' alt=''></p>";
+        echo "<p>".$category->name."</p></div>";
       }
       echo CHtml::hiddenField('category', $categoryPreselected);
       /*echo CHtml::dropDownList('category', $categoryPreselected, CHtml::listData(Category::model()->findAll(), 'id', 'name'),
@@ -21,13 +23,13 @@
     <div class="targetList">
       <div class="listColumn">
         <p>Выберите Ваш пол:</p>
-        <div class="boy targetDiv" type=1></div>
-        <div class="girl targetDiv" type=2></div>
+        <div class="boy targetDiv" type=1><img src='images/target/1.png' alt=''></div>
+				<div class="girl targetDiv" type=2><img src='images/target/2.png' alt=''></div>
       </div>
       <div class="listColumn">
         <p>Кого Вы ищете:</p>
-        <div class="boy targetDiv" type=1></div>
-        <div class="girl targetDiv" type=2></div>
+        <div class="boy targetDiv" type=1><img src='images/target/1.png' alt=''></div>
+				<div class="girl targetDiv" type=2><img src='images/target/2.png' alt=''></div>
       </div>
       <?php echo CHtml::hiddenField('target', 0, Target::getTargetList()); ?>
       <?php
@@ -48,7 +50,7 @@
       <div id="slider"></div>
     </div>
     <?php //echo CHtml::hiddenField('offset', 0); ?>
-    <?php echo CHtml::button('Искать', array(/*'submit' => array(),*/ "id"=>"sendForm")); ?>
+    <?php //echo CHtml::button('Искать', array(/*'submit' => array(),*/ "id"=>"sendForm")); ?>
     <div class="clearfix"></div>
   </div><!--column-->
   <div class="clearfix"></div>
@@ -80,6 +82,11 @@ Yii::app()->clientScript->registerScript('search',
       300);
     };
     
+    $('.categorySelect').on('click', function(){
+      $('.categorySelect').removeClass('categorySelectActive');
+      $(this).addClass('categorySelectActive');
+      $('#category').val($(this).attr('category_id'));
+    });
     
     $(document).ready(function(){
       $(document).on('click', '.smallpost[link]', function(){
@@ -134,10 +141,10 @@ Yii::app()->clientScript->registerScript('search',
         }
         return false;
       });
-  
+      
       $('#slider').slider({
-        min: 1,
-        max: 100,
+        min: 18,
+        max: 70,
         values: [$('input#minAge').val(),$('input#maxAge').val()],
         range: true,
         stop: function(event, ui) {
@@ -160,6 +167,7 @@ Yii::app()->clientScript->registerScript('search',
       $('input#minAge').change(function(){
         var value1=$('input#minAge').val();
         var value2=$('input#maxAge').val();
+        if (value1 < 18) { value1 = 18; $('input#minAge').val(value1);}
         if(parseInt(value1) > parseInt(value2)){
           value1 = value2;
           $('input#minAge').val(value1);
@@ -171,7 +179,7 @@ Yii::app()->clientScript->registerScript('search',
         var value1=$('input#minAge').val();
         var value2=$('input#maxAge').val();
         
-        if (value2 > 100) { value2 = 100; $('input#maxAge').val(100)}
+        if (value2 > 70) { value2 = 70; $('input#maxAge').val(70)}
       
         if(parseInt(value1) > parseInt(value2)){
           value2 = value1;

@@ -108,8 +108,7 @@ input:focus, textarea:focus, select:focus {
   /* и высоту */
   background: url("../images/slider.png") no-repeat;
   /* картинка изображающая ползунок. Или можно залить цветом, задать бордюр и скругления */
-  cursor: pointer;
-  background-size: 24px 24px; }
+  cursor: pointer; }
 
 .ui-slider .ui-slider-range {
   position: absolute;
@@ -235,7 +234,7 @@ div.form .errorMessage {
   font-style: normal;
   font-weight: normal; }
 * {
-  font-family: "MyriadProRegular";
+  font-family: "MyriadProRegular", Arial;
   color: #3b3b3b; }
 
 html, html body {
@@ -259,10 +258,10 @@ html, html body {
   padding-right: 12px; }
 
 .boxSizing, select, input, textarea, .categorySelect {
-  box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -o-box-sizing: border-box; }
+  -o-box-sizing: border-box;
+  box-sizing: border-box; }
 
 .formActiveElement, select, input, textarea, .categorySelect.categorySelectActive, .categorySelect.categorySelectActive:before, .listColumn .SelectActive, .listColumn .SelectActive:before {
   -moz-box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.4);
@@ -286,7 +285,8 @@ html, html body {
 
 .foriframe {
   padding-top: 3px;
-  display: none; }
+  display: none;
+  margin-bottom: 20px; }
 
 .column {
   width: 48.5%;
@@ -320,14 +320,15 @@ html, html body {
 
 #header {
   background-color: #bb0036;
-  height: 42px; }
+  height: 42px;
+  overflow: hidden; }
 
 #logo {
   cursor: pointer;
   background-image: url("../images/arrow-left.png");
   background-repeat: no-repeat;
   background-position: 0px 50%;
-  background-size: auto 12px;
+  background-size: auto auto;
   background-color: transperent;
   padding-left: 22px;
   float: left;
@@ -359,7 +360,6 @@ html, html body {
   display: inline-block;
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  background-size: auto 16px;
   width: 26px;
   height: 42px;
   cursor: pointer; }
@@ -382,15 +382,14 @@ html, html body {
 #buttons .separator {
   background-image: url("../images/line-active.png");
   width: 1px;
-  background-size: 1px 28px;
   cursor: default; }
 
 select, input, textarea {
   width: 100%;
   height: 36px;
   font-size: 16px;
-  line-height: 16px;
-  padding-top: 5px;
+  line-height: 30px;
+  padding: 5px 0px 0px 0px;
   color: #616161;
   background-color: #f1f1f1;
   border: none;
@@ -432,17 +431,14 @@ textarea {
 
 .categorySelect {
   margin: 0px 4% 8px 0%;
-  padding: 7px 20px 0px 34px;
+  padding: 7px 0px 0px 0px;
   position: relative;
   float: left;
   width: 48%;
   height: 39px;
-  color: #fff;
-  font-size: 12px;
-  line-height: 14px;
-  background-size: auto 17px;
-  background-repeat: no-repeat;
-  background-position: 8px 50%;
+  /*background-size: auto 17px;*/
+  /*background-repeat: no-repeat;*/
+  /*background-position: 8px 50%;*/
   background-color: #e53254;
   cursor: pointer;
   -webkit-border-radius: 4px;
@@ -452,9 +448,23 @@ textarea {
   border-radius: 4px; }
   @media (max-width: 767px) {
     .categorySelect {
-      padding: 7px 0px 0px 34px; } }
+      padding: 7px 0px 0px 0px; } }
+
+.categorySelect img {
+  width: 20px;
+  margin-right: 8px;
+  margin-left: 8px;
+  vertical-align: middle; }
+
+.categorySelect p {
+  display: table-cell;
+  vertical-align: middle;
+  color: #fff;
+  padding: 0px;
+  font-size: 12px;
+  line-height: 14px; }
   @media (min-width: 321px) {
-    .categorySelect {
+    .categorySelect p {
       font-size: 14px; } }
 
 .categoryList .categorySelect:nth-child(even) {
@@ -506,14 +516,16 @@ textarea {
   color: #3b3b3b; }
 
 .boy {
-  background-color: #007aff;
-  background-image: url("../images/boy.png");
-  background-size: auto 85%; }
+  background-color: #007aff; }
 
 .girl {
-  background-color: #ff9500;
-  background-image: url("../images/girl.png");
-  background-size: auto 95%; }
+  background-color: #ff9500; }
+
+.boy, .girl {
+  text-align: right; }
+
+.boy img, .girl img {
+  width: 95%; }
 
 .listColumn .SelectActive.boy {
   background-color: #0044aa; }
@@ -554,7 +566,7 @@ textarea {
   background-image: url("../images/arrow.png");
   background-repeat: no-repeat;
   background-position: 97% 50%;
-  background-size: auto 15px;
+  background-size: auto auto;
   background-color: transperent;
   /*border-bottom: 1px solid #9a0000;
   @media (max-width: 767px) {
@@ -604,12 +616,12 @@ textarea {
 }*/
 .smallpostline p {
   font-size: 14px;
-  height: 14px;
+  /*height: 14px;*/
   display: inline-block; }
   @media (min-width: 321px) {
     .smallpostline p {
       font-size: 18px;
-      height: 20px; } }
+      /*height: 20px;*/ } }
 
 .smallpostline.dt {
   font-size: 11px;
@@ -629,14 +641,18 @@ textarea {
 
 .smallpostline .category {
   color: #b20ed6;
-  background-size: auto 14px;
-  background-position: 0% 50%;
-  background-repeat: no-repeat;
-  padding-left: 22px; }
+  line-height: 14px; }
   @media (min-width: 321px) {
     .smallpostline .category {
-      background-size: auto 20px;
-      padding-left: 32px; } }
+      line-height: 20px; } }
+
+.smallpostline .category img {
+  float: left;
+  height: 14px;
+  margin-right: 5px; }
+  @media (min-width: 321px) {
+    .smallpostline .category img {
+      height: 20px; } }
 
 .smallpostcolumn.child {
   width: 86%;
