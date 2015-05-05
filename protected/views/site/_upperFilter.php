@@ -152,7 +152,7 @@ Yii::app()->clientScript->registerScript('search',
           $('input#maxAge').val($('#slider').slider('values',1));
           updateList($('.foriframe form'));
         },
-        slide: function(event, ui){
+        change: function(event, ui){
           $('input#minAge').val($('#slider').slider('values',0));
           $('input#maxAge').val($('#slider').slider('values',1));
         }

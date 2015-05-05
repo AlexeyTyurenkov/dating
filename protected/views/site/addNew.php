@@ -180,7 +180,7 @@
       stop: function(event, ui) {
         $('input#Post_age').val($('#slider').slider('values',0));
       },
-      slide: function(event, ui){
+      change: function(event, ui){
         $('input#Post_age').val($('#slider').slider('values',0));
       }
     });
