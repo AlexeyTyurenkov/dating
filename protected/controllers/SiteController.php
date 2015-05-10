@@ -289,4 +289,9 @@ class SiteController extends Controller
                );
             $this->render('adminposts',array('dataProvider'=>$dataProvider));
         }
+        
+        public function actionAsk()
+        {
+            $this->render('askMe');
+        }
 }

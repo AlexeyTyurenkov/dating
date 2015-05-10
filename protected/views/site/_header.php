@@ -8,7 +8,7 @@
 		<div class="separator"></div>
 		<?php echo CHtml::link("", Yii::app()->createUrl("site/add"), array("class"=>"b_add"));?>
 		<div class="separator"></div>
-		<?php echo CHtml::link("", "#", array("class"=>"b_ask"));?>
+		<?php echo CHtml::link("", Yii::app()->createUrl("site/ask"), array("class"=>"b_ask"));?>
 	</div>
 	<div class="clearfix"></div>
 </div><!-- header -->
