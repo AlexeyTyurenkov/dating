@@ -39,7 +39,7 @@ class Mailer {
         $mailer->subject        = "Активация Вашего объявления";
         $mailer->message        = "Ваше объявление ожидает активации ".Yii::app()->createAbsoluteUrl('site/activation',array('code'=>$post->activationCode));
         
-        $mailer->message        = $mailer->message ."\n\nДля редактирования воспользуйтесь ссылкой".Yii::app()->createAbsoluteUrl('site/edit',array('code'=>$post->editCode));
+        $mailer->message        = $mailer->message ."\n\nДля редактирования воспользуйтесь ссылкой ".Yii::app()->createAbsoluteUrl('site/edit',array('code'=>$post->editCode));
         
         $mailer->sendmail();
     }
