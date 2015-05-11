@@ -206,6 +206,18 @@ class SiteController extends Controller
         
         public function actionEdit($code) 
         {
+            if(isset($_POST['Post']))
+            {
+                $model=new Post;
+                $model->attributes=$_POST['Post'];
+                if($model->validate())
+                {
+                    // form inputs are valid, do something here
+                    $model->save();
+                    $this->render('editSuccess',array('model'=>$model));
+                    return;
+                }
+            }
             if(!$code)
             {
                 throw new CHttpException(400,"No such post");
