@@ -234,7 +234,7 @@ class Post extends CActiveRecord
         
         public static function getNextMessages($city,$category,$target,$minAge,$maxAge,$offset,$limit)
         {
-            $allPosts = Post::model()->filterCity($city)->filterCategory($category)->filterTarget($target)->filterAge($minAge,$maxAge)->pagination($offset,$limit)->orderByDate()->findAll();
+            $allPosts = Post::model()->filterCity($city)->filterCategory($category)->filterTarget($target)->filterAge($minAge,$maxAge)->activated()->pagination($offset,$limit)->orderByDate()->findAll();
 						return $allPosts;
         }
 				
@@ -245,6 +245,7 @@ class Post extends CActiveRecord
                     'criteria'=> Post::model()->filterCity($city)->
                                                 filterCategory($category)->
                                                 filterTarget($target)->
+                                                activated()->
                                                 filterAge($minAge,$maxAge)->
                                                 orderByDate()->getDBCriteria(),
                     'pagination'=>array(
@@ -252,4 +253,13 @@ class Post extends CActiveRecord
                     ),
             ));
         }
+        
+    public function scopes()
+    {
+        return array(
+            'activated'=>array(
+                'condition'=>'active=1',
+            ),
+        );
+    }
 }
