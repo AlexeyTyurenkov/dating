@@ -214,10 +214,12 @@ class SiteController extends Controller
             }
             if(isset($_POST['Post']))
             {
+                $activatedState = $post->active;
                 $post->attributes=$_POST['Post'];
                 if($post->validate())
                 {
                     // form inputs are valid, do something here
+                    $post->active = $activatedState;
                     $post->save();
                     $this->render('editSuccess',array('model'=>$post));
                     return;

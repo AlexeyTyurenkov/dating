@@ -175,6 +175,7 @@ class Post extends CActiveRecord
         public function activate()
         {
             $this->active = 1;
+            $this->save();
             $this->activationCode = NULL;
             $this->save();
         }
