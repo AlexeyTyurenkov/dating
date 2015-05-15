@@ -1,5 +1,5 @@
 <div class="foriframe">
-  <?php echo CHtml::beginForm(Yii::app()->createUrl('site/index')); ?>
+  <?php echo CHtml::beginForm(Yii::app()->createUrl('site/index'), 'POST', array("isapply"=>0)); ?>
   <div class="column">
     <p>Город:</p>
     <?php echo CHtml::dropDownList('city', $cityPreselected, CHtml::listData(City::model()->findAll(), 'id', 'name'),
@@ -71,6 +71,7 @@ Yii::app()->clientScript->registerScript('search',
             {
               data: ajaxRequest,
               complete: function(){
+							  form.attr('isApply', '1');
                 if($('.pageEnd').html()*1 == 1 || $('.smallpost').length == 0){
                   $('.loadPage').hide();
                 }

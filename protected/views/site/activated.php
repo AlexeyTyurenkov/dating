@@ -1,10 +1,16 @@
+<?php $this->renderPartial('_header', array('header'=>"")); ?>
 
-
-<div>
+<div class="main-text">
     Ваше объявление активировано
+    
+    <?php $this->renderPartial('_commonNavigation'); ?>
+    <br>
+    <?php $this->renderPartial("_smallPost",array('data'=>$model)); ?>
 </div>
-<div>
-<?php
-    $this->renderPartial('_commonNavigation');
-    $this->renderPartial("_smallPost",array('data'=>$model));
-?>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#logo").on('click', function(){
+			window.location = "/";
+		});
+	});
+</script>

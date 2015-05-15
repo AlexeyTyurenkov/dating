@@ -1,16 +1,12 @@
-<?php
+<?php $this->renderPartial('_header', array('header'=>"")); ?>
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-            
-?>
-
+<div class="main-text">
 <header>Объявление успешно отредактировано</header>
-<div>
-<div>Через несколько секунд Вы будете перенаправлены на главную страницу</div>
+<br/><br/>
+Через несколько секунд Вы будете перенаправлены на главную страницу
+
+</div>
+
 <?php Yii::app()->clientScript->registerScript('redirect', ' 
            function redirectToMain()
            {
@@ -21,3 +17,10 @@
 </div>
 <div>
 <?php     $this->renderPartial('_commonNavigation'); ?>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#logo").on('click', function(){
+			window.location = "/";
+		});
+	});
+</script>

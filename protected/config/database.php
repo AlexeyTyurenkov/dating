@@ -7,8 +7,8 @@ return array(
 	
 	'connectionString' => 'mysql:host=localhost;dbname=dating',
 	'emulatePrepare' => true,
-	'username' => 'dating',
-	'password' => '1234567',
+	'username' => 'root',
+	'password' => '123',
 	'charset' => 'utf8',
 	'initSQLs'=>array("set time_zone='+03:00';"),
 );

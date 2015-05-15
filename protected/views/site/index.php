@@ -25,5 +25,20 @@
             $('.foriframe').toggle();
             $(".b_search").toggleClass("b_search_active");
         });
+        $("#logo").on('click', function(){
+            if ($('.foriframe form').attr("isapply")==1) {
+                if($(".b_search_active").length==1) {
+                    $('.foriframe').toggle();
+                    $(".b_search").toggleClass("b_search_active");
+                }
+                else{
+                    location.reload();
+                }
+            }
+            else{
+                $('.foriframe').toggle();
+                $(".b_search").toggleClass("b_search_active");
+            }
+        });
     });
 </script>

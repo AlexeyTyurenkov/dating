@@ -624,7 +624,29 @@ textarea{
 	display: block;
 }
 
+.main-text{
+	margin: 20px 10px;
+	font-size: 18px;
+	line-height: 22px;
+}
 
+.button-link{
+	background-color: #bb0036;
+	text-align: center;
+	color: #fff;
+	font-size: 18px;
+	margin: 5px 5px 0px 0px;
+	padding: 3px 8px;
+	border: none;
+	display: inline-block;
+	@extend .formElement;
+	@include border-radius(4px);
+}
 
-
+.text-link{
+	color: #db0000;
+	text-decoration: underline;
+	display: inline-block;
+  margin: 10px 0px;
+}
 

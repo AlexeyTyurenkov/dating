@@ -152,19 +152,16 @@
 	</div>
 	
 	<div class="row buttons">
+		<?php 
+      if(!$model->isNewRecord)
+      {
+        echo CHtml::link('Удалить объявление',"#", array("submit"=>array('delete', 'code'=>$model->editCode), 'confirm' => 'Вы уверены?', "class"=>"text-link"));
+      }    
+    ?>
 		<?php echo CHtml::submitButton('Отправить', array("id"=>"sendForm")); ?>
 	</div>
 </div><!--column-->
 <?php $this->endWidget(); ?>
-    
-    <div class="row">
-        <?php 
-        if(!$model->isNewRecord)
-        {
-            echo CHtml::link('"Удалить объявление"',"#", array("submit"=>array('delete', 'code'=>$model->editCode), 'confirm' => 'Вы уверены?'));
-        }    
-        ?>
-    </div>
 </div><!-- form -->
 </div><!-- addform -->
 
@@ -214,6 +211,10 @@
 				var target = $('#Post_target_id').attr('attr_'+$('.targetDiv.SelectActive').eq(0).attr('type')+$('.targetDiv.SelectActive').eq(1).attr('type'));
 				$('#Post_target_id').val(target);
 			}
+		});
+		
+		$("#logo").on('click', function(){
+			history.back(1);
 		});
 	});
 </script>

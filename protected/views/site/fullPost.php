@@ -23,3 +23,11 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#logo").on('click', function(){
+			history.back(1);
+		});
+	});
+</script>

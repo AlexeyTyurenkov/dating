@@ -1,7 +1,13 @@
-<?php     $this->renderPartial('_commonNavigation'); ?>
+<?php $this->renderPartial('_header', array('header'=>"")); ?>
 
-<div>Вы отправили ответ </div>
-<div>Через несколько секунд Вы будете перенаправлены на главную страницу</div>
+<div class="main-text">
+<?php $this->renderPartial('_commonNavigation'); ?>
+<br/> <br/>
+
+Вы отправили ответ 
+<br/> <br/>
+Через несколько секунд Вы будете перенаправлены на главную страницу
+</div>
 
 <?php Yii::app()->clientScript->registerScript('redirect', ' 
            function redirectToMain()
@@ -10,3 +16,11 @@
            }
            setTimeout(redirectToMain,6000);     
 ', CClientScript::POS_HEAD); ?>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#logo").on('click', function(){
+			window.location = "/";
+		});
+	});
+</script>

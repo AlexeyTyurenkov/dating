@@ -1,26 +1,25 @@
-<br/>
-<br/>
+<?php $this->renderPartial('_header', array('header'=>"Привет!")); ?>
 
-<div class="header" style="text-align: center; font-size: 24">
-    Привет!
-</div>
-<br/>
-<br/>
-
-
-<div>
+<div class="main-text">
     Наш сервис объявлений абсолютно анонимен. <br/>
     Чтобы познакомиться Вам не нужно выставлять свои фото, подписываться по СМС и оплачивать размещение 
     анкет. <br/>
-    Вы просто <a href="http://datings.in.ua/add">оставляете объявление</a>, и ответы будут посылать Вам на вашу электронную почту.
+    Вы просто <a class="button-link" href="<?=$this->createUrl('/add');?>">оставляете объявление</a>, и ответы будут посылать Вам на вашу электронную почту.
     <br/>
- 
     <br/>
 
-    Если Вы хотите связаться с нами, пишите на адрес  <a href="mailto:admin@datings.in.ua">admin@datings.in.ua</a>
+    Если Вы хотите связаться с нами, пишите на адрес  <a class="button-link" href="mailto:admin@datings.in.ua">admin@datings.in.ua</a>
     
     <br>
     <br>
     <a href="http://datings.in.ua">Начните поиск сейчас</a>
     
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#logo").on('click', function(){
+			window.location = "/";
+		});
+	});
+</script>
