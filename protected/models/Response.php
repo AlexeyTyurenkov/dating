@@ -25,6 +25,7 @@ class Response extends CFormModel{
         return array(
             array('username, senderemail, message, post_id', 'required',  'message'=>'Поле {attribute} должно быть заполенено'),
             array('post_id','checkPost'),
+            array('username', 'length', 'max'=>80),
             array('senderemail','email', 'message' => 'Поле {attribute} должно быть Е-mail'),
             array('verifyCode','captcha','allowEmpty'=>!Yii::app()->user->isGuest || !CCaptcha::checkRequirements(), 'message'=> 'Введите код верификации с картинки'),
         );

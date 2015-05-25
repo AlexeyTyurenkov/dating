@@ -17,7 +17,7 @@
 </div>
 
 <script type="text/javascript">
-	$(document).ready(function(){
+	$(window).load(function(){
 		$("#logo").on('click', function(){
 			window.location = "/";
 		});

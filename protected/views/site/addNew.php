@@ -70,7 +70,8 @@
 		<?php echo $form->labelEx($model,'category_id'); ?>
 		<div class="categoryList">
 			<?php foreach(Category::model()->findAll() as $category){
-				echo "<div class='categorySelect' category_id='".$category->id."'>";
+				$cl = $category->id == $model->category_id ? "categorySelectActive" : "";
+				echo "<div class='categorySelect $cl' category_id='".$category->id."'>";
         echo "<p><img src='images/category/".$category->id.".png' alt=''></p>";
         echo "<p>".$category->name."</p></div>";
 			}
@@ -105,7 +106,7 @@
 	<hr>
 	<div class="row smallInput aligncenter">
 		<?php echo $form->labelEx($model,'age'); ?>
-		<?php $model->age = 18; ?>
+		<?php if($model->isNewRecord) $model->age = 18; ?>
 		<?php echo $form->textField($model,'age'); ?>
 		<div class="smallSlider">
 			<div id="slider"></div>
@@ -203,6 +204,13 @@
 			$(this).addClass('categorySelectActive');
 			$('#Post_category_id').val($(this).attr('category_id'));
 		});
+		
+		if($('#Post_target_id').val() != 0){
+			var value1 = $('#Post_target_id').attr($('#Post_target_id').val()+'-1');
+			var value2 = $('#Post_target_id').attr($('#Post_target_id').val()+'-2');
+			$('.targetList .listColumn').eq(0).find('.targetDiv[type='+value1+']').addClass('SelectActive');
+			$('.targetList .listColumn').eq(1).find('.targetDiv[type='+value2+']').addClass('SelectActive');
+		}
 		
 		$('.targetDiv').on('click', function(){
 			$(this).parents('.listColumn').find('.targetDiv').removeClass('SelectActive');

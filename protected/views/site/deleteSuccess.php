@@ -18,7 +18,7 @@
            setTimeout(redirectToMain,6000);     
 ', CClientScript::POS_HEAD); ?>
 
-<?php     $this->renderPartial('_commonNavigation'); ?>
+<?php $this->renderPartial('_commonNavigation'); ?>
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#logo").on('click', function(){

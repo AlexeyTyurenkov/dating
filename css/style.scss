@@ -15,6 +15,7 @@
 *{
   font-family: "MyriadProRegular", Arial;
   color: #3b3b3b;
+	word-wrap: break-word;
 }
 
 html, html body {
@@ -218,6 +219,7 @@ select, input, textarea{
 
 textarea{
 	padding-top: 10px;
+	max-width: 100%;
 }
 
 .foriframe input{
@@ -631,16 +633,9 @@ textarea{
 }
 
 .button-link{
-	background-color: #bb0036;
-	text-align: center;
-	color: #fff;
+	color: #bb0036;
 	font-size: 18px;
-	margin: 5px 5px 0px 0px;
-	padding: 3px 8px;
-	border: none;
-	display: inline-block;
-	@extend .formElement;
-	@include border-radius(4px);
+	text-decoration: underline;
 }
 
 .text-link{

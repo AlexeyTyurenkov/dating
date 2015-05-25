@@ -235,7 +235,8 @@ div.form .errorMessage {
   font-weight: normal; }
 * {
   font-family: "MyriadProRegular", Arial;
-  color: #3b3b3b; }
+  color: #3b3b3b;
+  word-wrap: break-word; }
 
 html, html body {
   background: #fff; }
@@ -269,7 +270,7 @@ html, html body {
   -o-box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.4);
   box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.4); }
 
-.formElement, .categorySelect, .listColumn div, #sendForm, .button-link {
+.formElement, .categorySelect, .listColumn div, #sendForm {
   -moz-box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.75);
   -o-box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.75);
@@ -408,7 +409,8 @@ select, input, textarea {
   appearance: none; }
 
 textarea {
-  padding-top: 10px; }
+  padding-top: 10px;
+  max-width: 100%; }
 
 .foriframe input {
   width: 65px;
@@ -764,19 +766,9 @@ textarea {
   line-height: 22px; }
 
 .button-link {
-  background-color: #bb0036;
-  text-align: center;
-  color: #fff;
+  color: #bb0036;
   font-size: 18px;
-  margin: 5px 5px 0px 0px;
-  padding: 3px 8px;
-  border: none;
-  display: inline-block;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px; }
+  text-decoration: underline; }
 
 .text-link {
   color: #db0000;

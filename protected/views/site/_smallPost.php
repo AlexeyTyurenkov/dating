@@ -4,7 +4,7 @@
     </div>
     <div class="smallpostcolumn big">
         <div class="smallpostline dt"><?php echo $data->create_date ?></div>
-        <div class="smallpostline"><p class="header<?php echo $data->target->img1; ?>"><?php echo $data->header; ?></p></div>
+        <div class="smallpostline"><div class="header<?php echo $data->target->img1; ?>"><?php echo $data->header; ?></div></div>
         <div class="smallpostline"><p class="city"><?php echo $data->city->name; ?>, <?php echo $data->age; ?></p></div>
         <div class="smallpostline">
             <div class="smallpostcolumn child">
@@ -18,7 +18,7 @@
             </div>
             <div class="smallpostimg"><img class="target2" src="images/target/<?php echo $data->target->img2; ?>.png" alt=""></div>
         </div>
-        <?php if(isset($showText)) { ?><div class="smallpostline"><p class="text"><?php echo $data->text; ?></p></div> <?php } ?>
+        <?php if(isset($showText)) { ?><div class="smallpostline"><?php echo $data->text; ?></div> <?php } ?>
     </div>
     
 </div>

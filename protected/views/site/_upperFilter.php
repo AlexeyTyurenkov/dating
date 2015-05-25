@@ -7,7 +7,8 @@
     <p>Цель:</p>
     <div class="categoryList">
       <?php foreach(Category::model()->findAll() as $category){
-        echo "<div class='categorySelect' category_id='".$category->id."'>";
+				$cl = $category->id == $categoryPreselected ? "categorySelectActive" : "";
+        echo "<div class='categorySelect $cl' category_id='".$category->id."'>";
         echo "<p><img src='images/category/".$category->id.".png' alt=''></p>";
         echo "<p>".$category->name."</p></div>";
       }
@@ -31,7 +32,7 @@
         <div class="boy targetDiv" type=1><img src='images/target/1.png' alt=''></div>
 				<div class="girl targetDiv" type=2><img src='images/target/2.png' alt=''></div>
       </div>
-      <?php echo CHtml::hiddenField('target', 0, Target::getTargetList()); ?>
+      <?php echo CHtml::hiddenField('target', $targetPreselected, Target::getTargetList()); ?>
       <?php
         /*echo CHtml::dropDownList('target', $targetPreselected, CHtml::listData(Target::model()->findAll(), 'id', 'name'),
           array('empty'=>"Все категории", 'class' => "bigSelector")); */ ?>
@@ -105,6 +106,13 @@ Yii::app()->clientScript->registerScript('search',
         updateList($('.foriframe form'));
       });
       
+			if($('#target').val() != 0){
+				var value1 = $('#target').attr($('#target').val()+'-1');
+				var value2 = $('#target').attr($('#target').val()+'-2');
+				$('.targetList .listColumn').eq(0).find('.targetDiv[type='+value1+']').addClass('SelectActive');
+				$('.targetList .listColumn').eq(1).find('.targetDiv[type='+value2+']').addClass('SelectActive');
+			}
+			
       $('.targetDiv').on('click', function(){
         $(this).parents('.listColumn').find('.targetDiv').removeClass('SelectActive');
         $(this).addClass('SelectActive');

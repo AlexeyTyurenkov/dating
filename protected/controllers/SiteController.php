@@ -42,35 +42,41 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
-            $city     = Yii::app()->request->getParam('city',0);
-            $category = Yii::app()->request->getParam('category',0);
-            $target   = Yii::app()->request->getParam('target',0);
-            $minAge   = Yii::app()->request->getParam('minAge',18);
-            $maxAge   = Yii::app()->request->getParam('maxAge',70);
-            $offset   = Yii::app()->request->getParam('offset',0);
-            $limit    = Yii::app()->request->getParam('limit',50);
-            $postsDataprovider = Post::getDataProvider($city, $category, $target, $minAge, $maxAge, $limit);
-						
-            if(Yii::app()->request->isAjaxRequest && $offset != 0){
-		$postsDataprovider = Post::getNextMessages($city, $category, $target, $minAge, $maxAge, $offset, $limit);
-		foreach($postsDataprovider as $data){
-			$this->renderPartial('_smallPost', array('data'=> $data));
+		if(!empty($_GET)){
+				Yii::app()->session['form'] = $_GET;
 		}
-		Yii::app()->end();
-            }
-            else 
-            {
-            // если запрос не асинхронный, отдаём форму полностью
-                $this->render('index', array('cityPreselected'     => $city, 
-                                         'categoryPreselected' => $category,
-                                         'targetPreselected'    => $target,
-                                         'minAgeSelected'       => $minAge,
-                                         'maxAgeSelected'       => $maxAge,
-                                         'limit'                => $limit,
-                                         'offset'               => $offset,
-                                         'dataProvider'         => $postsDataprovider
-																				  ));
-            }
+		if(!empty(Yii::app()->session['form'])){
+				$_GET = Yii::app()->session['form'];
+		}
+		$city     = Yii::app()->request->getParam('city',0);
+		$category = Yii::app()->request->getParam('category',0);
+		$target   = Yii::app()->request->getParam('target',0);
+		$minAge   = Yii::app()->request->getParam('minAge',18);
+		$maxAge   = Yii::app()->request->getParam('maxAge',70);
+		$offset   = Yii::app()->request->getParam('offset',0);
+		$limit    = Yii::app()->request->getParam('limit',50);
+		$postsDataprovider = Post::getDataProvider($city, $category, $target, $minAge, $maxAge, $limit);
+		
+		if(Yii::app()->request->isAjaxRequest && $offset != 0){
+				$postsDataprovider = Post::getNextMessages($city, $category, $target, $minAge, $maxAge, $offset, $limit);
+				foreach($postsDataprovider as $data){
+					$this->renderPartial('_smallPost', array('data'=> $data));
+				}
+				Yii::app()->end();
+		}
+		else 
+		{
+		// если запрос не асинхронный, отдаём форму полностью
+				$this->render('index', array('cityPreselected'     => $city, 
+																 'categoryPreselected' => $category,
+																 'targetPreselected'    => $target,
+																 'minAgeSelected'       => $minAge,
+																 'maxAgeSelected'       => $maxAge,
+																 'limit'                => $limit,
+																 'offset'               => $offset,
+																 'dataProvider'         => $postsDataprovider
+																	));
+		}
 
 	}
 
@@ -138,8 +144,6 @@ class SiteController extends Controller
                 throw new CHttpException(400,'Illegal method');
             }
         }
-       
-
         
         public function actionShow()
         {
@@ -201,7 +205,6 @@ class SiteController extends Controller
         
         public function actionEdit($code) 
         {
-
             if(!$code)
             {
                 throw new CHttpException(400,"No such post");
@@ -301,6 +304,7 @@ class SiteController extends Controller
         
         public function actionAsk()
         {
+						unset(Yii::app()->session['form']);
             $this->render('askMe');
         }
 }

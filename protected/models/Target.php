@@ -112,6 +112,8 @@ class Target extends CActiveRecord
 		foreach($categoriesArray as $city)
 		{
 			$result["attr_".$city["img1"].$city["img2"]] = $city["id"];
+			$result[$city["id"]."-1"] = $city["img1"];
+			$result[$city["id"]."-2"] = $city["img2"];
 		}
 		return $result;   
 	}
