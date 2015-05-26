@@ -24,8 +24,9 @@ class Response extends CFormModel{
     {
         return array(
             array('username, senderemail, message, post_id', 'required',  'message'=>'Поле {attribute} должно быть заполенено'),
+            array('message', 'length', 'max'=>2000, 'message'=>'Поле {attribute} слишком длинное (максимум 2000 символов)', 'tooLong'=>'Поле {attribute} слишком длинное (максимум 2000 символов)'),
             array('post_id','checkPost'),
-            array('username', 'length', 'max'=>80),
+            array('username', 'length', 'max'=>80, 'message'=>'Поле {attribute} слишком длинное (максимум 80 символов)', 'tooLong'=>'Поле {attribute} слишком длинное (максимум 80 символов)'),
             array('senderemail','email', 'message' => 'Поле {attribute} должно быть Е-mail'),
             array('verifyCode','captcha','allowEmpty'=>!Yii::app()->user->isGuest || !CCaptcha::checkRequirements(), 'message'=> 'Введите код верификации с картинки'),
         );

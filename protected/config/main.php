@@ -38,7 +38,6 @@ return array(
 			'allowAutoLogin'=>true,
 		),
 
-
 		'urlManager'=>array(
 			'urlFormat'=>'path',
                         'showScriptName' => false,

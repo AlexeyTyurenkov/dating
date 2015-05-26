@@ -222,7 +222,7 @@
 		});
 		
 		$("#logo").on('click', function(){
-			history.back(1);
+			window.location = "/";
 		});
 	});
 </script>

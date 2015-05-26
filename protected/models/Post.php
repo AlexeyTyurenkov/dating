@@ -79,10 +79,10 @@ class Post extends CActiveRecord
 			array('user_id, city_id, category_id, target_id, header, text, active, abused, age', 'required','message'=>'Поле {attribute} должно быть заполенено'),
 			array('active, abused, age', 'numerical', 'integerOnly'=>true),
 			array('user_id, city_id, category_id, target_id', 'length', 'max'=>10),
-			array('header', 'length', 'max'=>80),
-			array('text', 'length', 'max'=>2000),
-                       // авторизованным пользователям код можно не вводить
-                        //array('verifyCode','captcha','allowEmpty'=>!Yii::app()->user->isGuest || !CCaptcha::checkRequirements()),
+			array('header', 'length', 'max'=>80, 'message'=>'Поле {attribute} слишком длинное (максимум 80 символов)', 'tooLong'=>'Поле {attribute} слишком длинное (максимум 80 символов)'),
+			array('text', 'length', 'max'=>2000, 'message'=>'Поле {attribute} слишком длинное (максимум 2000 символов)', 'tooLong'=>'Поле {attribute} слишком длинное (максимум 2000 символов)'),
+			// авторизованным пользователям код можно не вводить
+			//array('verifyCode','captcha','allowEmpty'=>!Yii::app()->user->isGuest || !CCaptcha::checkRequirements()),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, user_id, create_date, city_id, category_id, target_id, header, text, active, abused, age', 'safe', 'on'=>'search'),

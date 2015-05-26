@@ -12,7 +12,7 @@
     
     <br>
     <br>
-    <a href="http://datings.in.ua">Начните поиск сейчас</a>
+    <a class="button-link" href="<?=$this->createUrl('site/index');?>">Начните поиск сейчас</a>
     
 </div>
 

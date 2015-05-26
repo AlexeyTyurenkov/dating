@@ -23,7 +23,7 @@ class Mailer {
     
     private function sendmail()
     {
-        $headers="From: ".$this->addressFrom."\r\nReply-To: ".$this->addressToReply;
+        $headers="From: ".$this->addressFrom."\r\nReply-To: ".$this->addressToReply."\r\nContent-type: text/plain; charset=utf-8";
         mail($this->addressToSend,  $this->subject, $this->message,$headers);
 
     }
