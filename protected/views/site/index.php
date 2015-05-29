@@ -32,7 +32,13 @@
                     $(".b_search").toggleClass("b_search_active");
                 }
                 else{
-                    location.reload();
+                    $.ajax({
+                        type: 'post',
+                        url: 'site/clear',
+                        success: function(){
+                            location.reload();
+                        }
+                    });
                 }
             }
             else{
