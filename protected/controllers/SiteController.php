@@ -204,7 +204,7 @@ class SiteController extends Controller
         }
         
         public function actionEdit($code) 
-        { //$code="oYtmAlTLnqwExh9d7v";
+        { 
             if(!$code)
             {
                 throw new CHttpException(400,"No such post");
@@ -306,5 +306,10 @@ class SiteController extends Controller
         {
 						unset(Yii::app()->session['form']);
             $this->render('askMe');
+        }
+				
+				public function actionClear()
+        {
+						unset(Yii::app()->session['form']);
         }
 }

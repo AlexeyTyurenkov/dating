@@ -84,17 +84,17 @@ Yii::app()->clientScript->registerScript('search',
       300);
     };
     
-    $('.categorySelect').on('click', function(){
-      $('.categorySelect').removeClass('categorySelectActive');
-      $(this).addClass('categorySelectActive');
-      $('#category').val($(this).attr('category_id'));
-    });
-    
     $(document).ready(function(){
       $(document).on('click', '.smallpost[link]', function(){
         window.location = $(this).attr('link');
       });
       
+			$('.categorySelect').on('click', function(){
+				$('.categorySelect').removeClass('categorySelectActive');
+				$(this).addClass('categorySelectActive');
+				$('#category').val($(this).attr('category_id'));
+			});
+			
       $('#minAge').keyup(function(){updateList($('.foriframe form'))});
       $('#maxAge').keyup(function(){updateList($('.foriframe form'))});    
       $('#city').change(function(){updateList($('.foriframe form'))});
