@@ -7,7 +7,7 @@ $this->widget('zii.widgets.CListView', array(
     'summaryText' => "<div class='summaryText'><p class='summaryPages'>страница <span class='pageCurrent'>{start}</span> / <span class='pageEnd'>{pages}</span></p><p class='summaryResults'>всего {count} анкет</p></div><a class='summaryAdd' href='".Yii::app()->createUrl("site/add")."'><span>+</span> добавить свою</a>",
     'template'=>'{items}<div class="loadItems"></div><div class="clearfix"></div>{summary}<div class="clearfix"></div><div class="loadPage"></div>',
     'id' => 'PostsList',
-    'emptyText'=> "Пока нет объявлений. Будьте <a class='text-link' href='/addNew'> первым </a>."
+    'emptyText'=> "Пока нет объявлений. Будьте <a class='text-link' href='/add'> первым </a>."
 ));
 ?>
 <script type="text/javascript">
