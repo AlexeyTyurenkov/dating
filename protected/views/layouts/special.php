@@ -15,7 +15,8 @@
 
 	<!--<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css">-->
 	<!--<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css">-->
-
+        <meta name="description" content="Бесплатный сайт анонимных знакомств">
+        <meta name="keywords" content="знакомства, интим-знакомтва, знакомства для серьезных отношений, знакомства для интима, секс на один раз, серьезные отношения, знакомства для брака, легкие отношения, интим">
   <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css"/>
 
 	<?php Yii::app()->clientScript->registerCoreScript('jquery');	?>
