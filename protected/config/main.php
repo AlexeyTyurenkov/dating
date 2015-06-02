@@ -37,7 +37,23 @@ return array(
                         'tableProfileFields' => 'profiles_fields',
                 ),
                 'rights'=>array(
-                        'install'=>true,
+ 
+                    'superuserName'=>'Admin', // Name of the role with super user privileges. 
+                   'authenticatedName'=>'Authenticated',  // Name of the authenticated user role. 
+                   'userIdColumn'=>'id', // Name of the user id column in the database. 
+                   'userNameColumn'=>'username',  // Name of the user name column in the database. 
+                   'enableBizRule'=>true,  // Whether to enable authorization item business rules. 
+                   'enableBizRuleData'=>true,   // Whether to enable data for business rules. 
+                   'displayDescription'=>true,  // Whether to use item description instead of name. 
+                   'flashSuccessKey'=>'RightsSuccess', // Key to use for setting success flash messages. 
+                   'flashErrorKey'=>'RightsError', // Key to use for setting error flash messages. 
+
+                   'baseUrl'=>'/rights', // Base URL for Rights. Change if module is nested. 
+                   'layout'=>'rights.views.layouts.main',  // Layout to use for displaying Rights. 
+                   'appLayout'=>'application.views.layouts.main', // Application layout. 
+                   'cssFile'=>'rights.css', // Style sheet file to use for Rights. 
+                   'install'=>false,  // Whether to enable installer. 
+                   'debug'=>false, 
                 ),
 	),
 
@@ -51,21 +67,27 @@ return array(
                         'loginUrl'=>array('/user/login'),
                 ),
                 'authManager'=>array(
-                        'class'=>'RDbAuthManager',
-                        'connectionID'=>'db',
-                        'defaultRoles'=>array('Authenticated', 'Guest'),
+                    'class'=>'RDbAuthManager',
+                    'connectionID'=>'db',
+                    'itemTable'=>'authitem',
+                    'itemChildTable'=>'authitemchild',
+                    'assignmentTable'=>'authassignment',
+                    'rightsTable'=>'rights',
                 ),
 
 		'urlManager'=>array(
+                        'caseSensitive'=>true,
 			'urlFormat'=>'path',
                         'showScriptName' => false,
                         'urlSuffix' => '',
                         'useStrictParsing' => true,
 			'rules'=>array(
                                 '' => 'site/index',
+                                'rights' => 'rights/assignment',
                                 '<action>' => 'site/<action>',
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
-				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<action>',
+				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
+                                '<module:\w+>/<controller:\w+>/<action:\w+>'=>'<module>/<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
 		),

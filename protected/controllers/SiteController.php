@@ -31,7 +31,7 @@ class SiteController extends Controller
         public function filters()
         {
             return array(
-                'accessControl',
+                'rights + never'
             );
         }
       
@@ -312,4 +312,7 @@ class SiteController extends Controller
         {
 						unset(Yii::app()->session['form']);
         }
+
+        
+        
 }

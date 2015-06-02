@@ -133,6 +133,7 @@ class RInstaller extends CApplicationComponent
         }
         catch( CDbException $e )
         {
+            var_dump($e);
             // Something went wrong, rollback.
             $txn->rollback();
 
