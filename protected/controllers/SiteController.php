@@ -31,7 +31,7 @@ class SiteController extends Controller
         public function filters()
         {
             return array(
-                'rights + never'
+                'rights'
             );
         }
       
@@ -304,13 +304,13 @@ class SiteController extends Controller
         
         public function actionAsk()
         {
-						unset(Yii::app()->session['form']);
+            unset(Yii::app()->session['form']);
             $this->render('askMe');
         }
 				
-				public function actionClear()
+	public function actionClear()
         {
-						unset(Yii::app()->session['form']);
+            unset(Yii::app()->session['form']);
         }
 
         
