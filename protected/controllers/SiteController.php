@@ -130,10 +130,13 @@ class SiteController extends Controller
                     
                    $user = new User();
                    $user->email = $email;
+                   $user->username = $email;
                    $user->password = Utilites::random_password();
                    if(!$user->save())
                    {
-                       throw new CHttpException(500,'Cannot save to database');
+                       echo "Test";
+                       var_dump($user->getErrors());
+                       //throw new CHttpException(500,'Cannot save to database');
                    }             
                 }
                 echo $user->id;
